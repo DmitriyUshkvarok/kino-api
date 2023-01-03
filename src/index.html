@@ -1,14 +1,100 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@500&display=swap"
+      rel="stylesheet">
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <header class="page-header">
+      <div class="container">
+        <a class="logo" href="./index.html" tabindex="0">FilmsTest</a>
+        <!-- кнопка переключения темы -->
+        <div class="theme-btn">
+          <label id="switch" class="switch" tabindex="1">
+            <input type="checkbox" class="switcher-toggle" id="slider" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <!--  -->
+
+        <!-- location -->
+        <div class="cont-lang">
+          <div class="wrapper-language" tabindex="2">
+            <p>Choose language</p>
+          </div>
+          <ul class="language">
+            <li class="item-language" data-google-lang="en">english <img
+                src="./images/gb.svg" alt="en" data-google-lang="en" width="22"
+                height="15"></li>
+            <li class="item-language" data-google-lang="de">deuthch <img
+                src="./images/de.svg" alt="de" data-google-lang="de"
+                width="22" height="15"></li>
+            <li class="item-language" data-google-lang="es">espanio <img
+                src="./images/es.svg" alt="es" data-google-lang="es"
+                width="22" height="15"></li>
+            <li class="item-language" data-google-lang="uk">ukraine <img
+                src="./images/ua.svg" alt="uk" data-google-lang="uk"
+                width="22" height="15"></li>
+          </ul>
+        </div>
+        <!--  -->
+        <form class="search-form" id="search-form">
+          <input class="input-search" type="text" name="searchQuery"
+            autocomplete="on"
+            placeholder="Search movies..."
+            tabindex="3">
+          <button class="search-button" type="submit" tabindex="4">Search</button>
+        </form>
+      </div>
+    </header>
+    <div class="container">
+      <h1 class="rated-title">Top 20 Movies</h1>
+      <div class="ganre-populary">
+        <div class='swiper mySwiper'>
+          <div class='swiper-wrapper'>
+          </div>
+        </div>
+        <!-- <div class='swiper-button-next'></div>
+        <div class='swiper-button-prev'></div> -->
+      </div>
+      <ul class='genre-list'>
+        <li class='genre-item' data-id="28">Action</li>
+        <li class='genre-item' data-id="12">Adventure</li>
+        <li class='genre-item' data-id="16">Animation</li>
+        <li class='genre-item' data-id="35">Comedy</li>
+        <li class='genre-item' data-id="80">Crime</li>
+        <li class='genre-item' data-id="99">Documentary</li>
+        <li class='genre-item' data-id="18">Drama</li>
+        <li class='genre-item' data-id="10751">Family</li>
+        <li class='genre-item' data-id="14">Fantasy</li>
+        <li class='genre-item' data-id="36">History</li>
+        <li class='genre-item' data-id="27">Horror</li>
+        <li class='genre-item' data-id="10402">Music</li>
+        <li class='genre-item' data-id="9648">Mystery</li>
+        <li class='genre-item' data-id="10749">Romance</li>
+        <li class='genre-item' data-id="878">Science Fiction</li>
+        <li class='genre-item' data-id="10770">TV Movie</li>
+        <li class='genre-item' data-id="53">Thriller</li>
+        <li class='genre-item' data-id="10752">War</li>
+        <li class='genre-item' data-id="37">Western</li>
+        <li class='genre-item genre-item--choose-all'>Choose All</li>
+      </ul>
+
+      <ul class="gallery"></ul>
+      <div class="target"></div>
+    </div>
+    <div class="button-sroll-up">
+      <a href="#" class="btn-scroll"></a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script
+      src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
+    <script src="./main-js/google-translate.js"></script>
   </body>
 </html>

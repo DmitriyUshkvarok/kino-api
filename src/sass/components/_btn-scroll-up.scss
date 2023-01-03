@@ -1,0 +1,52 @@
+.button-sroll-up {
+  position: relative;
+}
+
+.btn-scroll {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: red;
+  font-size: 0;
+  opacity: 0.7;
+  z-index: 200;
+  display: none;
+  transition: all 0.3;
+  box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.7),
+    inset 0 0 30px 10px rgba(201, 162, 45, 0.7);
+}
+
+body.white-theme .btn-scroll {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
+}
+
+.btn-scroll.shown {
+  display: block;
+}
+
+.btn-scroll::before {
+  position: absolute;
+  content: '';
+  background-image: url('../images/pngwing.com.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-scroll:hover {
+  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7),
+    inset 0 0 30px 10px rgba(6, 230, 246, 0.7);
+  transform: scale(1.1);
+}
+
+.btn-scroll:active {
+  transform: scale(1.2);
+}

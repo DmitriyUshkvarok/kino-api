@@ -1,0 +1,13 @@
+{{#each results}}
+  <div class='swiper-slide'>
+    <img
+      class='rated-img'
+      src='https://image.tmdb.org/t/p/w500/{{poster_path}}'
+      alt='{{title}}'
+      data-id='{{id}}'
+    />
+    <div class='rated-info-box'>
+      <p class='rated-name'>{{title}}</p>
+    </div>
+  </div>
+{{/each}}

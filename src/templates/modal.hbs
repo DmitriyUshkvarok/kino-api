@@ -1,0 +1,22 @@
+<div class='modal'>
+  <div class='modal-wrapper'>
+    <div class='img-container'>
+      <img
+        class='modal-img'
+        src='https://image.tmdb.org/t/p/w500/{{poster_path}}'
+        alt='{{title}}'
+      />
+    </div>
+    <div class='modal-info'>
+      <h2 class='modal-title'>{{title}}</h2>
+      <p class='modal-ganre'>Genre:
+        {{#each genres}}
+          <span class='sub-genre'>{{this.name}}</span>
+        {{/each}}
+      </p>
+      <p class='modal-review'>{{overview}}</p>
+      <p class='modal-relese'>{{release_date}}</p>
+      <p class='popularity'>{{popularity}}</p>
+    </div>
+  </div>
+</div>
