@@ -41,9 +41,9 @@ export class ApiThemoviedb {
   }
 
   // список фильмов в поиске по названию
-  fetchFilmsBySearch(searchValue) {
+  fetchFilmsBySearch() {
     return fetch(
-      `${this.URL}/search/movie?api_key=${this.key}&query=${searchValue}&page=${this.page}`
+      `${this.URL}/search/movie?api_key=${this.key}&query=${this.searchValue}&page=${this.page}`
     )
       .then(response => response.json())
       .catch(this.onError);
