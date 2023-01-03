@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://DmitriyUshkvarok.github.io/film-api-test",
+  "homepage": "https://DmitriyUshkvarok.github.io/kino-api",
   "scripts": {
     "start": "parcel src/*.html --open",
-    "build": "parcel build src/*.html --public-url /film-api-test/"
+    "build": "parcel build src/*.html --public-url /kino-api/"
   },
   "repository": {
     "type": "git",
