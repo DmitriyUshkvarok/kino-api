@@ -9,9 +9,14 @@ import { getAuth, signInWithPopup, GithubAuthProvider } from 'firebase/auth';
 import { GithubAuthProvider } from 'firebase/auth';
 
 const TOKEN_KEY = 'token';
-localStorage.getItem(TOKEN_KEY);
+const token = localStorage.getItem(TOKEN_KEY);
+const backdrop = document.querySelector('.back-drop-modal');
+// if (backdrop.classList.add('is-hidden')) {
+//   token;
+// } else if (backdrop.classList.remove('is-hidden')) {
+//   localStorage.removeItem(TOKEN_KEY);
+// }
 
-// базовые настройки для работы с firebase
 const firebaseConfig = {
   apiKey: 'AIzaSyD3BbBXldF6joP2YSzYphMAgDhQoeY1jvI',
   authDomain: 'kino-api-test.firebaseapp.com',
@@ -38,10 +43,13 @@ function onSignFunction() {
     .then(result => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      console.log(token);
+      // console.log(token);
       const user = result.user.displayName;
-      localStorage.setItem(TOKEN_KEY, token);
       Notify.success(`Thanks ${user} for entering our resource`);
+      backdrop.classList.add('is-hidden');
+      window.removeEventListener('scroll', onStopScroll);
+      document.body.classList.remove('stop-fon');
+      localStorage.setItem(TOKEN_KEY, backdrop);
     })
     .catch(error => {
       const errorCode = error.code;
@@ -49,15 +57,14 @@ function onSignFunction() {
       const email = error.customData.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
-  document.querySelector('.back-drop-modal').classList.add('is-hidden');
-  window.removeEventListener('scroll', onStopScroll);
-  document.body.classList.remove('stop-fon');
 }
 
 function onOutFunction() {
   alert('Are you sure you want to leave');
+  Notify.success(`Thanks for visiting our resource`);
   document.querySelector('.back-drop-modal').classList.remove('is-hidden');
   onStopScroll();
+  // localStorage.removeItem(TOKEN_KEY);
 }
 
 window.addEventListener('scroll', onStopScroll);

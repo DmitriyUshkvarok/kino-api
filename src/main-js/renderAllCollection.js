@@ -4,6 +4,7 @@ import allCollection from '../templates/all-collection.hbs';
 import Notiflix from 'notiflix';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import { TOKEN_KEY } from './firebase';
 
 const gallery = document.querySelector('.gallery');
 export const apiThemoviedb = new ApiThemoviedb();
@@ -53,6 +54,7 @@ function renderMarkupMovieCard(results) {
   }
   const resultAll = allCollection(results);
   gallery.insertAdjacentHTML('beforeend', resultAll);
+  localStorage.getItem(TOKEN_KEY);
 }
 
 // observer.unobserve(target);
