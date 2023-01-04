@@ -11,11 +11,6 @@ import { GithubAuthProvider } from 'firebase/auth';
 const TOKEN_KEY = 'token';
 // const token = localStorage.getItem(TOKEN_KEY);
 const backdrop = document.querySelector('.back-drop-modal');
-// if (backdrop.classList.add('is-hidden')) {
-//   token;
-// } else if (backdrop.classList.remove('is-hidden')) {
-//   localStorage.removeItem(TOKEN_KEY);
-// }
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD3BbBXldF6joP2YSzYphMAgDhQoeY1jvI',
@@ -43,13 +38,12 @@ function onSignFunction() {
     .then(result => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // console.log(token);
       const user = result.user.displayName;
       Notify.success(`Thanks ${user} for entering our resource`);
       backdrop.classList.add('is-hidden');
       window.removeEventListener('scroll', onStopScroll);
       document.body.classList.remove('stop-fon');
-      localStorage.setItem(TOKEN_KEY, backdrop);
+      // localStorage.setItem(TOKEN_KEY, backdrop);
     })
     .catch(error => {
       const errorCode = error.code;
@@ -85,7 +79,7 @@ function onSignFunctionGit() {
       const token = credential.accessToken;
       const user = result.user.displayName;
       Notify.success(`Thanks ${user} for entering our resource`);
-      localStorage.setItem('token', token);
+      // localStorage.setItem('token', token);
     })
     .catch(error => {
       const errorCode = error.code;
