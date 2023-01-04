@@ -1,8 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { GoogleAuthProvider } from 'firebase/auth';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD3BbBXldF6joP2YSzYphMAgDhQoeY1jvI',
@@ -13,6 +11,7 @@ const firebaseConfig = {
   appId: '1:916238277743:web:eb2124321b1bdbca1e419a',
   measurementId: 'G-JPQTZ5J1FC',
 };
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
