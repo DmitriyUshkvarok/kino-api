@@ -40,7 +40,7 @@ function onSignFunction() {
       const token = credential.accessToken;
       console.log(token);
       const user = result.user.displayName;
-      localStorage.setItem(TOKEN_KEY, token);
+      // localStorage.setItem(TOKEN_KEY, token);
       Notify.success(`Thanks ${user} for entering our resource`);
     })
     .catch(error => {
@@ -78,7 +78,7 @@ function onSignFunctionGit() {
       const token = credential.accessToken;
       const user = result.user.displayName;
       Notify.success(`Thanks ${user} for entering our resource`);
-      localStorage.setItem('token', token);
+      // localStorage.setItem('token', token);
     })
     .catch(error => {
       const errorCode = error.code;
