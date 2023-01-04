@@ -1,6 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
+import { GithubAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDT6hn1X6MOlpZ4iiCFr-KMlblHTDyc3Gg',
@@ -11,6 +12,7 @@ const firebaseConfig = {
   appId: '1:564661411790:web:a813ef026114618e1fd59f',
 };
 
+// google авторизация
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -51,4 +53,29 @@ window.addEventListener('scroll', onStopScroll);
 
 function onStopScroll() {
   document.body.classList.add('stop-fon');
+}
+
+// github авторизация
+const providerGit = new GithubAuthProvider();
+const authGit = getAuth();
+
+const gitBtn = document.querySelector('.btn-modal-sign-git');
+gitBtn.addEventListener('click', onSignFunctionGit);
+function onSignFunctionGit() {
+  signInWithPopup(authGit, providerGit)
+    .then(result => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user.displayName;
+      Notify.success(`привет ${user} ёпта`);
+      document.querySelector('.back-drop-modal').classList.add('is-hidden');
+      window.removeEventListener('scroll', onStopScroll);
+      document.body.classList.remove('stop-fon');
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.customData.email;
+      const credential = GithubAuthProvider.credentialFromError(error);
+    });
 }
