@@ -6,7 +6,6 @@ import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const gallery = document.querySelector('.gallery');
-
 export const apiThemoviedb = new ApiThemoviedb();
 // бесконечный скролл
 const options = {
