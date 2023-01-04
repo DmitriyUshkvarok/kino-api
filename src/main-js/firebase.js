@@ -21,11 +21,10 @@ const firebaseConfig = {
   appId: '1:916238277743:web:eb2124321b1bdbca1e419a',
   measurementId: 'G-JPQTZ5J1FC',
 };
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
 
 // запрос на google аккаунт
 const provider = new GoogleAuthProvider();
+const auth = getAuth();
 
 const btnSign = document.querySelector('.btn-modal-sign');
 const btnOut = document.querySelector('.btn-log-out');
