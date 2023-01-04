@@ -3,13 +3,12 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyD3BbBXldF6joP2YSzYphMAgDhQoeY1jvI',
-  authDomain: 'kino-api-test.firebaseapp.com',
-  projectId: 'kino-api-test',
-  storageBucket: 'kino-api-test.appspot.com',
-  messagingSenderId: '916238277743',
-  appId: '1:916238277743:web:eb2124321b1bdbca1e419a',
-  measurementId: 'G-JPQTZ5J1FC',
+  apiKey: 'AIzaSyDT6hn1X6MOlpZ4iiCFr-KMlblHTDyc3Gg',
+  authDomain: 'kino-practice.firebaseapp.com',
+  projectId: 'kino-practice',
+  storageBucket: 'kino-practice.appspot.com',
+  messagingSenderId: '564661411790',
+  appId: '1:564661411790:web:a813ef026114618e1fd59f',
 };
 
 const app = initializeApp(firebaseConfig);
