@@ -9,7 +9,7 @@ import { getAuth, signInWithPopup, GithubAuthProvider } from 'firebase/auth';
 import { GithubAuthProvider } from 'firebase/auth';
 
 const TOKEN_KEY = 'token';
-const token = localStorage.getItem(TOKEN_KEY);
+// const token = localStorage.getItem(TOKEN_KEY);
 const backdrop = document.querySelector('.back-drop-modal');
 // if (backdrop.classList.add('is-hidden')) {
 //   token;
