@@ -68,12 +68,11 @@ function onStopScroll() {
 }
 // запрос на github аккаунт
 const providerGit = new GithubAuthProvider();
-const authGit = getAuth();
 const btnGit = document.querySelector('.btn-modal-sign-git');
 
 btnGit.addEventListener('click', onSignFunctionGit);
 function onSignFunctionGit() {
-  signInWithPopup(authGit, providerGit)
+  signInWithPopup(auth, providerGit)
     .then(result => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
