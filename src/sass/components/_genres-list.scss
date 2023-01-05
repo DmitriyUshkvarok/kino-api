@@ -110,6 +110,31 @@ body.white-theme .logo {
   text-shadow: 0 0 10px rgb(242, 10, 10);
 }
 
+.librarry-btn,
+.home-btn {
+  font-family: 'Aboreto';
+  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  max-width: 100px;
+  padding: 5px;
+  background-color: transparent;
+  color: gold;
+  border: none;
+  transition: transform 0.3s;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+    outline: none;
+  }
+}
+
 .search-form {
   display: flex;
   justify-content: center;
@@ -299,7 +324,7 @@ body.white-theme .movie-card__item:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
+  background-color: rgba(255, 228, 196, 0.8);
   border-radius: 10px;
   // box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9),
   //   inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
@@ -333,6 +358,33 @@ body.white-theme .modal {
 
 .modal-title {
   font-size: 18px;
+}
+
+.moda-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.modal-btn {
+  font-family: 'Aboreto';
+  cursor: pointer;
+  background-color: transparent;
+  max-width: 130px;
+  border: none;
+  border-radius: 5px;
+  color: gold;
+  text-shadow: 0 0 5px rgb(31, 53, 20);
+  padding: 5px;
+  box-shadow: 0 0 5px 5px rgba(6, 230, 246, 0.7);
+  transition: transform 0.3s;
+
+  &:focus,
+  &:hover {
+    transform: scale(1.1);
+    outline: none;
+  }
 }
 
 // swiper top genre

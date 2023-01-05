@@ -3,7 +3,7 @@ let buttonUp = document.querySelector('.btn-scroll');
 window.addEventListener('scroll', onScrolFunction);
 
 function onScrolFunction(e) {
-  if (window.pageYOffset > 200) {
+  if (window.pageYOffset > 300) {
     buttonUp.classList.add('shown');
   } else {
     buttonUp.classList.remove('shown');

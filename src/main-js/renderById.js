@@ -39,4 +39,7 @@ export function onOpenCard(data) {
   function onOffHidden() {
     document.body.classList.remove('stop-fon');
   }
+
+  // добавить карточки в библиотеку
+  // const librarryCollection = document.querySelector('.librarry-colection');
 }

@@ -1,0 +1,76 @@
+<header class='page-header'>
+  <div class='container'>
+    <a class='logo' href='./index.html' tabindex='0'>FilmsTest</a>
+    <!-- кнопка выйти из логина -->
+    <button class='btn-log-out' type='button'>log out</button>
+    <!-- кнопка переключения темы -->
+    <div class='theme-btn'>
+      <label id='switch' class='switch' tabindex='1'>
+        <input type='checkbox' class='switcher-toggle' id='slider' />
+        <span class='slider round'></span>
+      </label>
+    </div>
+    <!--  -->
+
+    <!-- location -->
+    <div class='cont-lang'>
+      <div class='wrapper-language' tabindex='2'>
+        <p>Choose language</p>
+      </div>
+      <ul class='language'>
+        <li class='item-language' data-google-lang='en'>english
+          <img
+            src='./images/gb.svg'
+            alt='en'
+            data-google-lang='en'
+            width='22'
+            height='15'
+          /></li>
+        <li class='item-language' data-google-lang='de'>deuthch
+          <img
+            src='./images/de.svg'
+            alt='de'
+            data-google-lang='de'
+            width='22'
+            height='15'
+          /></li>
+        <li class='item-language' data-google-lang='es'>espanio
+          <img
+            src='./images/es.svg'
+            alt='es'
+            data-google-lang='es'
+            width='22'
+            height='15'
+          /></li>
+        <li class='item-language' data-google-lang='uk'>ukraine
+          <img
+            src='./images/ua.svg'
+            alt='uk'
+            data-google-lang='uk'
+            width='22'
+            height='15'
+          /></li>
+      </ul>
+    </div>
+    <!--  -->
+    <div class='home'>
+      <a class='home-btn' type='button' href='./index.html'>Home</a>
+    </div>
+    <form class='search-form' id='search-form'>
+      <input
+        class='input-search'
+        type='text'
+        name='searchQuery'
+        autocomplete='on'
+        placeholder='Search movies...'
+        tabindex='3'
+      />
+      <button class='search-button' type='submit' tabindex='4'>Search</button>
+    </form>
+  </div>
+</header>
+<div class='container'>
+  <section class='librarry-section'>
+    <ul class='librarry-colection'></ul>
+  </section>
+</div>
