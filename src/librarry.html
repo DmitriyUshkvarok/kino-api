@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Page title</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@500&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="./sass/index.scss" />
+        <script type="module" src="./librarry.js"></script>
+    </head>
+
+    <body>
+        <!-- modal window -->
+        <div class="back-drop-modal">
+            <div class="modal-window">
+                <h3 class="title-modal-sign">Sing In</h3>
+                <div class="btn-wrapper">
+                    <button class="btn-modal-sign" type="submit" value=""
+                        id='submit'>login with google</button>
+                    <button class="btn-modal-sign-git" type="submit" value=""
+                        id='submit'>login with github</button>
+                </div>
+            </div>
+        </div>
+        <!-- ========= -->
+        <header class='page-header'>
+            <div class='container'>
+                <a class='logo' href='./index.html' tabindex='0'>FilmsTest</a>
+                <!-- кнопка выйти из логина -->
+                <button class='btn-log-out' type='button'>log out</button>
+                <!-- кнопка переключения темы -->
+                <div class='theme-btn'>
+                    <label id='switch' class='switch' tabindex='1'>
+                        <input type='checkbox' class='switcher-toggle'
+                            id='slider' />
+                        <span class='slider round'></span>
+                    </label>
+                </div>
+                <!--  -->
+
+                <!-- location -->
+                <div class='cont-lang'>
+                    <div class='wrapper-language' tabindex='2'>
+                        <p>Choose language</p>
+                    </div>
+                    <ul class='language'>
+                        <li class='item-language' data-google-lang='en'>english
+                            <img src='./images/gb.svg' alt='en'
+                                data-google-lang='en' width='22' height='15' />
+                        </li>
+                        <li class='item-language' data-google-lang='de'>deuthch
+                            <img src='./images/de.svg' alt='de'
+                                data-google-lang='de' width='22' height='15' />
+                        </li>
+                        <li class='item-language' data-google-lang='es'>espanio
+                            <img src='./images/es.svg' alt='es'
+                                data-google-lang='es' width='22' height='15' />
+                        </li>
+                        <li class='item-language' data-google-lang='uk'>ukraine
+                            <img src='./images/ua.svg' alt='uk'
+                                data-google-lang='uk' width='22' height='15' />
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class='home'>
+                    <a class='home-btn' href='./index.html'>Home</a>
+                </div>
+            </div>
+        </header>
+        <div class='container'>
+            <section class='librarry-section'>
+                <ul class='librarry-colection'></ul>
+            </section>
+        </div>
+        <ul class="gallery"></ul>
+        <div class="target"></div>
+    </div>
+    <div class="button-sroll-up">
+        <a href="#" class="btn-scroll"></a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script
+        src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
+    <script src="./main-js/google-translate.js"></script>
+</body>

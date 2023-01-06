@@ -110,6 +110,11 @@ body.white-theme .logo {
   text-shadow: 0 0 10px rgb(242, 10, 10);
 }
 
+body.white-theme .librarry-btn,
+body.white-theme .home-btn {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
+}
+
 .librarry-btn,
 .home-btn {
   font-family: 'Aboreto';
@@ -247,7 +252,7 @@ body.white-theme .genre-item {
 
   &:hover {
     filter: saturate(165%);
-    // box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+    box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
     // transform: scale(1.02);
   }
 }
@@ -385,6 +390,10 @@ body.white-theme .modal {
     transform: scale(1.1);
     outline: none;
   }
+}
+
+body.white-theme .modal-btn {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
 }
 
 // swiper top genre

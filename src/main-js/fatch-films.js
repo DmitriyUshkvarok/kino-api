@@ -1,4 +1,4 @@
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix';
 // рендер всех карточек
 export class ApiThemoviedb {
   URL = `https://api.themoviedb.org/3`;
@@ -66,7 +66,7 @@ export class ApiThemoviedb {
   }
 
   onError(errorMovie) {
-    return Notiflix.failure('sorry this is error');
+    return Notify.failure('sorry this is error');
   }
 }
 

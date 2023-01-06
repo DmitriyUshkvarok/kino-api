@@ -2,6 +2,7 @@ import { apiThemoviedb } from './renderAllCollection';
 import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import moviesWathces from '../templates/movies-watched.hbs';
 
 const gallery = document.querySelector('.gallery');
 
@@ -39,7 +40,19 @@ export function onOpenCard(data) {
   function onOffHidden() {
     document.body.classList.remove('stop-fon');
   }
+  // добавить карточки в библиотеку ===========================================================================
+  const modalLibrarryBtn = document.querySelector('.modal-btn');
+  const librarryContainer = document.querySelector('.librarry-colection');
+  modalLibrarryBtn.addEventListener('click', onRenderMoviesInLibrarry);
 
-  // добавить карточки в библиотеку
-  // const librarryCollection = document.querySelector('.librarry-colection');
+  function onRenderMoviesInLibrarry(e) {
+    const currentIdBtnWatch = e.target.dataset.id;
+    apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(onOpenCardCollection);
+  }
+
+  function onOpenCardCollection(movie) {
+    const resultWatch = moviesWathces(movie);
+    console.dir(resultWatch);
+    librarryContainer.innerHTML = resultWatch;
+  }
 }

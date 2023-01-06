@@ -110,3 +110,7 @@
     transform: scale(1.1);
   }
 }
+
+body.white-theme .btn-log-out {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
+}
