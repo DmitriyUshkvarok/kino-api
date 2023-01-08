@@ -12,6 +12,10 @@ function onScrolFunction(e) {
 
 buttonUp.addEventListener('click', onScrollUp);
 
-function onScrollUp() {
-  window.scrollTo(0, 0);
+function onScrollUp(e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }

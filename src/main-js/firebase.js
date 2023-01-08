@@ -1,8 +1,17 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Notiflix from 'notiflix';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from 'firebase/auth';
+
 import { initializeApp } from 'firebase/app';
-import { GithubAuthProvider } from 'firebase/auth';
 
 const body = document.querySelector('body');
 const backdrop = document.querySelector('.back-drop-modal');
@@ -10,10 +19,16 @@ const TOKEN_KEY = 'token';
 const googleBtn = document.querySelector('.btn-modal-sign');
 const btnOut = document.querySelector('.btn-log-out');
 const gitBtn = document.querySelector('.btn-modal-sign-git');
+const emailAndPhone = document.querySelector('.btn-register');
+const btnSign = document.querySelector('.btn-sign');
+const emailSign = document.querySelector('#email');
+const passwordSign = document.querySelector('#password');
 const token = localStorage.getItem(TOKEN_KEY);
 
 gitBtn.addEventListener('click', onSignFunctionGit);
 googleBtn.addEventListener('click', onSignFunctionGoogle);
+emailAndPhone.addEventListener('click', onRegisterEmailAndPhone);
+btnSign.addEventListener('click', onSign);
 btnOut.addEventListener('click', onOutFunction);
 window.addEventListener('load', onStopBackground);
 // стоп фон при авторизации
@@ -38,8 +53,67 @@ const firebaseConfig = {
   appId: '1:564661411790:web:a813ef026114618e1fd59f',
 };
 
-// google авторизация
 const app = initializeApp(firebaseConfig);
+
+const authStateChange = getAuth();
+function authState() {
+  onAuthStateChanged(authStateChange, user => {
+    if (user) {
+      const uid = user.uid;
+      console.log(user);
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+}
+authState();
+
+// email and phone регистрация
+const authForm = getAuth();
+
+// клик по кнопке регистрации
+function onRegisterEmailAndPhone(e) {
+  e.preventDefault();
+  const email = emailSign.value;
+  const password = passwordSign.value;
+  createUserWithEmailAndPassword(authForm, email, password)
+    .then(userCredential => {
+      if (email && password) {
+        backdrop.classList.add('is-hidden');
+        body.classList.remove('stop-fon');
+        window.removeEventListener('load', onStopBackground);
+      }
+      const user = userCredential.user;
+    })
+    .catch(error => {
+      onErrorValid(error);
+    });
+}
+
+// вход если уже зарегестрирован
+const authSign = getAuth();
+
+// клик по кнопке вход
+function onSign(e) {
+  e.preventDefault();
+  const email = emailSign.value;
+  const password = passwordSign.value;
+  signInWithEmailAndPassword(authSign, email, password)
+    .then(userCredential => {
+      if (email && password) {
+        backdrop.classList.add('is-hidden');
+        body.classList.remove('stop-fon');
+        window.removeEventListener('load', onStopBackground);
+      }
+      const user = userCredential.user;
+    })
+    .catch(error => {
+      onErrorValid(error);
+    });
+}
+
+// google авторизация
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
@@ -99,6 +173,7 @@ function onOutFunction() {
     function okCb() {
       backdrop.classList.remove('is-hidden');
       onStopBackground();
+      // signOut(authGit, auth, authSign, authForm);
       localStorage.removeItem(TOKEN_KEY);
     },
     function cancelCb() {
@@ -110,4 +185,18 @@ function onOutFunction() {
       fontFamily: 'Aboreto',
     }
   );
+}
+
+// error valid
+function onErrorValid(error) {
+  if (error.message == 'Firebase: Error (auth/email-already-in-use).') {
+    Notify.failure('такой адрес уже существует');
+  } else if (error.message == 'Firebase: Error (auth/invalid-email).') {
+    Notify.failure('не валидный эмеил');
+  } else if (error.message == 'Firebase: Error (auth/wrong-password).') {
+    Notify.failure('ошибка авторизации!неверный пароль');
+  } else {
+    Notify.failure(`${error.message}`);
+  }
+  return;
 }

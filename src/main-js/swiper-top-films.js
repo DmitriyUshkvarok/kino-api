@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
-// import 'swiper/swiper-bundle.min.js';
 import { onRenderTopList } from './renderByRated';
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 Swiper.use([Autoplay]);

@@ -13,8 +13,23 @@
   <body>
     <!-- modal window -->
     <div class="back-drop-modal">
+
       <div class="modal-window">
         <h3 class="title-modal-sign">Sing In</h3>
+        <form class="modal-sing-form">
+          <label class="feedback-form__label" for="email">Email</label>
+          <input class="input-email" type="email"
+            name="email"
+            id="email">
+          <label class="feedback-form__label" for="password">Password</label>
+          <input class="input-password" type="password"
+            name="password"
+            id="password" data-lengt='4'>
+          <button class="btn-register" type="submit" value=""
+            id='submit'>Register</button>
+          <button class="btn-sign" type="submit" value=""
+            id='sign'>Log In</button>
+        </form>
         <div class="btn-wrapper">
           <button class="btn-modal-sign" type="submit" value=""
             id='submit'>login with google</button>
@@ -22,6 +37,20 @@
             id='submit'>login with github</button>
         </div>
       </div>
+      <!-- <div class="swiper modal-swiper">
+        <ul class="swiper-wrapper list-modal">
+          <li class="swiper-slide list-modal-item"><img class="backdrop-img"
+              src="./images/fon-1.jpg" alt=""></li>
+          <li class="swiper-slide list-modal-item"><img class="backdrop-img"
+              src="./images/fon-2.jpg" alt=""></li>
+          <li class="swiper-slide list-modal-item"><img class="backdrop-img"
+              src="./images/fon-3.jpg" alt=""></li>
+          <li class="swiper-slide list-modal-item"><img class="backdrop-img"
+              src="./images/fon-4.jpg" alt=""></li>
+          <li class="swiper-slide list-modal-item"><img class="backdrop-img"
+              src="./images/fon-5.jpg" alt=""></li>
+        </ul>
+      </div> -->
     </div>
     <!-- ========= -->
     <header class="page-header">
@@ -74,10 +103,12 @@
       </div>
     </header>
     <div class="container">
-      <h1 class="rated-title">Top 20 Movies</h1>
+      <div class="rated-title-wrapper">
+        <h1 class="rated-title">Top 20 Movies</h1>
+      </div>
       <div class="ganre-populary">
         <div class='swiper mySwiper'>
-          <div class='swiper-wrapper'>
+          <div class='swiper-wrapper ganre-wrapper'>
           </div>
         </div>
         <!-- <div class='swiper-button-next'></div>
@@ -108,6 +139,18 @@
       <ul class="gallery"></ul>
       <div class="target"></div>
     </div>
+    <!-- прелоадер -->
+    <div class="preloader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+    <!-- кнопка вверх -->
     <div class="button-sroll-up">
       <a href="#" class="btn-scroll"></a>
     </div>

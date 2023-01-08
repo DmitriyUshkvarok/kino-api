@@ -4,7 +4,7 @@ import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-const swiperContainer = document.querySelector('.swiper-wrapper');
+const swiperContainer = document.querySelector('.ganre-wrapper');
 const genrePopulary = document.querySelector('.ganre-populary');
 
 function rebnderByRater() {
