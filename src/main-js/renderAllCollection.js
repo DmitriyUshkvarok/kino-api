@@ -39,9 +39,6 @@ function onLoadFilmCards(entries) {
       } else {
         apiThemoviedb.fetchFilms().then(renderMarkupMovieCard);
       }
-      // apiThemoviedb.genreId
-      //   ? apiThemoviedb.fetchFilmsByGenre().then(renderMarkupMovieCard)
-      //   : apiThemoviedb.fetchFilms().then(renderMarkupMovieCard);
     }
   });
 }

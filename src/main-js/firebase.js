@@ -83,8 +83,10 @@ function onRegisterEmailAndPhone(e) {
         backdrop.classList.add('is-hidden');
         body.classList.remove('stop-fon');
         window.removeEventListener('load', onStopBackground);
+        localStorage.setItem(TOKEN_KEY, token);
       }
       const user = userCredential.user;
+      console.log(user);
     })
     .catch(error => {
       onErrorValid(error);
@@ -105,6 +107,7 @@ function onSign(e) {
         backdrop.classList.add('is-hidden');
         body.classList.remove('stop-fon');
         window.removeEventListener('load', onStopBackground);
+        localStorage.setItem(TOKEN_KEY, token);
       }
       const user = userCredential.user;
     })
@@ -190,13 +193,25 @@ function onOutFunction() {
 // error valid
 function onErrorValid(error) {
   if (error.message == 'Firebase: Error (auth/email-already-in-use).') {
-    Notify.failure('такой адрес уже существует');
+    Notify.failure('такой адрес уже существует', {
+      timeout: 4000,
+      background: '#c9a22de6',
+    });
   } else if (error.message == 'Firebase: Error (auth/invalid-email).') {
-    Notify.failure('не валидный эмеил');
+    Notify.failure('не валидный эмеил', {
+      timeout: 4000,
+      background: '#c9a22de6',
+    });
   } else if (error.message == 'Firebase: Error (auth/wrong-password).') {
-    Notify.failure('ошибка авторизации!неверный пароль');
+    Notify.failure('ошибка авторизации!неверный пароль', {
+      timeout: 4000,
+      background: '#c9a22de6',
+    });
   } else {
-    Notify.failure(`${error.message}`);
+    Notify.failure(`${error.message}`, {
+      timeout: 4000,
+      background: '#c9a22de6',
+    });
   }
   return;
 }

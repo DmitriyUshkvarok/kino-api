@@ -811,7 +811,7 @@ body.white-theme .wrapper-language {
   border-radius: 5px;
   color: gold;
   padding: 5px;
-  box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9), inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
+  box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.902), inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
   transition: transform 0.4s;
 }
 .btn-modal-sign:hover, .btn-modal-sign:focus,
@@ -1048,6 +1048,7 @@ body.white-theme .btn-log-out {
   width: 25%;
   height: 25%;
   background-color: #fff;
+  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7), inset 0 0 10px 10px rgba(6, 230, 246, 0.7);
   border-radius: 100%;
   -webkit-animation: sk-chase-dot-before 2s infinite ease-in-out both;
           animation: sk-chase-dot-before 2s infinite ease-in-out both;
