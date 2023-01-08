@@ -2,6 +2,7 @@ import { apiThemoviedb } from './renderAllCollection';
 import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import moviesWathces from '../templates/movies-watched.hbs';
 
 const gallery = document.querySelector('.gallery');
 const librarryContainer = document.querySelector('.librarry-colection');
@@ -42,4 +43,18 @@ export function onOpenCard(data) {
   }
   // добавить карточки в библиотеку ===========================================================================
   const modalLibrarryBtn = document.querySelector('.modal-btn');
+  modalLibrarryBtn.addEventListener('click', onRenderMoviesInLibrarry);
+
+  function onRenderMoviesInLibrarry(e) {
+    const currentIdBtnWatch = e.target.dataset.id;
+    apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(onOpenCardCollection);
+  }
+
+  function onOpenCardCollection(movie) {
+    const resultWatch = moviesWathces(movie);
+    console.dir(resultWatch);
+
+    librarryContainer.insertAdjacentHTML('beforeend', resultWatch);
+    apiThemoviedb.resetPage();
+  }
 }

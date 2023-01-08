@@ -1,8 +1,8 @@
-import { modalLibrarryBtn } from './renderById';
 import moviesWathces from '../templates/movies-watched.hbs';
-modalLibrarryBtn.addEventListener('click', onRenderMoviesInLibrarry);
+import { apiThemoviedb } from './renderAllCollection';
+import onOpenCard from './renderById';
 
-function onRenderMoviesInLibrarry(e) {
+function onRenderMoviesInLibrarry(onOpenCard) {
   const currentIdBtnWatch = e.target.dataset.id;
   apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(onOpenCardCollection);
 }
