@@ -771,14 +771,44 @@ body.white-theme .wrapper-language {
 .modal-sing-form {
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
   margin-bottom: 50px;
 }
 
+.fedback-form-group {
+  max-width: 100%;
+}
+
+.password-wrapper {
+  position: relative;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-open {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(-50%, -5%);
+  opacity: 1;
+}
+
+.icon-close {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(-50%, -5%);
+  opacity: 0;
+}
+
+.icon-close.hide {
+  opacity: 1;
+}
+
 .input-email,
-.input-password,
-.btn-register,
-.btn-sign {
+.input-password {
   font-family: "Aboreto";
   background-color: transparent;
   padding: 3px;
@@ -791,14 +821,35 @@ body.white-theme .wrapper-language {
   box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9), inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
   transition: transform 0.4s;
 }
-.input-email:hover, .input-email:focus,
-.input-password:hover,
-.input-password:focus,
-.btn-register:hover,
-.btn-register:focus,
+
+.btn-form-wrapper {
+  margin-top: 30px;
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+
+.btn-register,
+.btn-sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Aboreto";
+  background-color: transparent;
+  padding: 3px;
+  width: 100%;
+  height: 30px;
+  outline: 1px solid gold;
+  border: none;
+  border-radius: 5px;
+  color: rgb(26, 25, 25);
+  box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9), inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
+  transition: transform 0.4s;
+}
+.btn-register:hover, .btn-register:focus,
 .btn-sign:hover,
 .btn-sign:focus {
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 
 .title-modal-sign {

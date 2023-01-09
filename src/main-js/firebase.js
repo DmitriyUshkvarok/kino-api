@@ -25,6 +25,11 @@ const emailSign = document.querySelector('#email');
 const passwordSign = document.querySelector('#password');
 const token = localStorage.getItem(TOKEN_KEY);
 
+passwordSign.addEventListener('input', test);
+function test(e) {
+  console.dir(e);
+}
+
 gitBtn.addEventListener('click', onSignFunctionGit);
 googleBtn.addEventListener('click', onSignFunctionGoogle);
 emailAndPhone.addEventListener('click', onRegisterEmailAndPhone);
@@ -83,6 +88,7 @@ function onRegisterEmailAndPhone(e) {
         backdrop.classList.add('is-hidden');
         body.classList.remove('stop-fon');
         window.removeEventListener('load', onStopBackground);
+        Notify.success('Спасибо за регестрацию');
         localStorage.setItem(TOKEN_KEY, token);
       }
       const user = userCredential.user;
@@ -107,6 +113,7 @@ function onSign(e) {
         backdrop.classList.add('is-hidden');
         body.classList.remove('stop-fon');
         window.removeEventListener('load', onStopBackground);
+        Notify.success('Рады тебя снова видеть на нашем сайте');
         localStorage.setItem(TOKEN_KEY, token);
       }
       const user = userCredential.user;

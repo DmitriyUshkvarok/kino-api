@@ -15,3 +15,4 @@ import './main-js/firebase';
 import './main-js/preloader';
 import './main-js/swiper-expected';
 import './main-js/renderByExpected';
+import './main-js/password-toggle-input';
