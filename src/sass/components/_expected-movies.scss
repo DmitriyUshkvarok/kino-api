@@ -1,0 +1,70 @@
+.expected-wrapper {
+  margin-top: 70px;
+}
+
+.expected-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 42px;
+  color: gold;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+  margin-bottom: 30px;
+}
+
+.swiper .expected-swiper {
+  max-width: 100%;
+}
+
+.swiper-wrapper .expected-movies-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  // flex-wrap: wrap;
+}
+
+.swiper-slide .expected-movies-item {
+  width: 100%;
+  // box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+  // cursor: pointer;
+  // padding: 10px;
+  // border-radius: 10px;
+  // transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+
+.expected-img {
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.expected-info {
+  padding: 5px;
+}
+
+.expected-name {
+  font-family: 'Aboreto';
+  color: gold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 150px;
+  height: 1.2em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+// swiper button
+.swiper-button-prev,
+.swiper-button-next {
+  width: 37px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.swiper-button-next {
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  z-index: 10;
+}

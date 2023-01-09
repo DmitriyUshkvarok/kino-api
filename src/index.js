@@ -13,4 +13,5 @@ import './main-js/location';
 import './main-js/google-translate';
 import './main-js/firebase';
 import './main-js/preloader';
-import './main-js/swiper-login-modal';
+import './main-js/swiper-expected';
+import './main-js/renderByExpected';

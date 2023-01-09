@@ -65,6 +65,15 @@ export class ApiThemoviedb {
       .catch(this.onError);
   }
 
+  // список ожидаемых фильмов
+  fetchExpectedMovies() {
+    return fetch(
+      `${this.URL}/movie/upcoming?api_key=${this.key}&page=${this.page}`
+    )
+      .then(response => response.json())
+      .catch(this.onError);
+  }
+
   onError(errorMovie) {
     return Notify.failure('sorry this is error');
   }
