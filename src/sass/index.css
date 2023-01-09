@@ -323,7 +323,7 @@ body.white-theme .movie-card__item:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 228, 196, 0.8);
+  background-color: rgba(255, 228, 196, 0.6);
   border-radius: 10px;
   box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
 }
@@ -355,6 +355,43 @@ body.white-theme .modal {
 
 .modal-title {
   font-size: 18px;
+  font-family: "Aboreto";
+  color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+  margin-bottom: 20px;
+}
+
+.modal-ganre {
+  font-family: "Aboreto";
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+  margin-bottom: 20px;
+}
+
+.modal-review {
+  font-family: "Aboreto";
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+}
+
+.modal-relese {
+  font-family: "Aboreto";
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+}
+
+.modal-popularity {
+  font-family: "Aboreto";
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
 }
 
 .moda-btn-wrapper {
@@ -1114,43 +1151,132 @@ body.white-theme .btn-log-out {
     transform: scale(1);
   }
 }
-.expected-wrapper {
-  margin-top: 70px;
-}
-
 .expected-title {
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  font-size: 42px;
+  font-size: 52px;
   color: gold;
   text-shadow: 0 0 20px rgb(201, 162, 45);
   margin-bottom: 30px;
+  margin-top: 70px;
 }
 
-.swiper .expected-swiper {
-  max-width: 100%;
+.expected-swiper {
+  width: 100%;
+  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+  border-radius: 10px;
 }
 
-.swiper-wrapper .expected-movies-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+body.white-theme .expected-swiper {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
 }
 
-.swiper-slide .expected-movies-item {
+.expected-movies-list {
   width: 100%;
 }
 
+.expected-movies-item {
+  display: flex;
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+  overflow: hidden;
+}
+
 .expected-img {
-  border-radius: 10px;
-  max-width: 400px;
+  max-width: 350px;
+  filter: saturate(145%);
+  border-radius: 10px 0 0 10px;
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
 }
 
 .expected-info {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.expected-title-modal {
+  font-family: "Aboreto";
+  color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+  margin-bottom: 20px;
+}
+
+body.white-theme .expected-title-modal {
+  text-shadow: 0 0 10px rgb(242, 10, 10);
+}
+
+.expected-review {
+  font-family: "Aboreto";
+  color: gold;
+  font-size: 21px;
+  line-height: 1.24;
+  margin-bottom: 30px;
+}
+
+body.white-theme .expected-review {
+  color: gold;
+  text-shadow: 0 0 10px rgb(242, 10, 10);
+}
+
+.expected-relese {
+  font-family: "Aboreto";
+  color: gold;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+body.white-theme .expected-relese {
+  color: gold;
+  text-shadow: 0 0 10px rgb(242, 10, 10);
+}
+
+.expected-popularity {
+  font-family: "Aboreto";
+  color: gold;
+  font-size: 20px;
+}
+
+body.white-theme .expected-popularity {
+  color: gold;
+  text-shadow: 0 0 10px rgb(242, 10, 10);
+}
+
+.expected-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.expected-btn {
+  font-family: "Aboreto";
+  cursor: pointer;
+  background-color: transparent;
+  max-width: 130px;
+  border: none;
+  border-radius: 5px;
+  color: gold;
+  text-shadow: 0 0 5px rgb(31, 53, 20);
   padding: 5px;
+  box-shadow: 0 0 5px 5px rgba(6, 230, 246, 0.7019607843);
+  transition: transform 0.3s;
+}
+.expected-btn:focus, .expected-btn:hover {
+  transform: scale(1.1);
+  outline: none;
+}
+
+body.white-theme .expected-btn {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
+  color: rgb(244, 72, 9);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgb(242, 10, 10);
+  background-color: rgba(15, 14, 14, 0.5);
 }
 
 .expected-name {
@@ -1169,6 +1295,22 @@ body.white-theme .btn-log-out {
   width: 37px;
   height: 35px;
   cursor: pointer;
+  text-shadow: 0 0 15px rgb(6, 230, 246);
+}
+
+body.white-theme .swiper-button-prev,
+body.white-theme .swiper-button-next {
+  text-shadow: 0 0 10px rgb(242, 10, 10);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: rgb(6, 230, 246);
+}
+
+body.white-theme .swiper-button-prev::after,
+body.white-theme .swiper-button-next::after {
+  color: rgb(242, 10, 10);
 }
 
 .swiper-button-next {

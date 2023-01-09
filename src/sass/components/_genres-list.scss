@@ -329,7 +329,7 @@ body.white-theme .movie-card__item:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 228, 196, 0.8);
+  background-color: rgba(255, 228, 196, 0.6);
   border-radius: 10px;
   // box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9),
   //   inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
@@ -363,6 +363,43 @@ body.white-theme .modal {
 
 .modal-title {
   font-size: 18px;
+  font-family: 'Aboreto';
+  color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+  margin-bottom: 20px;
+}
+
+.modal-ganre {
+  font-family: 'Aboreto';
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+  margin-bottom: 20px;
+}
+
+.modal-review {
+  font-family: 'Aboreto';
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+}
+
+.modal-relese {
+  font-family: 'Aboreto';
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+}
+
+.modal-popularity {
+  font-family: 'Aboreto';
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
 }
 
 .moda-btn-wrapper {

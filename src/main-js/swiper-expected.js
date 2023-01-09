@@ -7,17 +7,17 @@ Swiper.use([Autoplay]);
 
 const swiper = new Swiper('.expected-swiper', {
   modules: [EffectFade, EffectCube, Navigation, Pagination, Autoplay],
-  // effect: 'fade',
-  // fadeEffect: {
-  //   crossFade: true,
-  // },
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true,
+  },
   // autoplay: {
   //   delay: 2000,
   //   // disableOnInteraction: true,
   // },
   grabCursor: true,
   // loop: true,
-  slidesPerView: 3,
+  slidesPerView: 1,
   slidesPerGroup: 1,
 
   navigation: {
