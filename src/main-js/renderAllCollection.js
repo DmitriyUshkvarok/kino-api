@@ -1,5 +1,4 @@
 import { ApiThemoviedb } from './fatch-films';
-import '@fancyapps/ui/dist/fancybox.css';
 import allCollection from '../templates/all-collection.hbs';
 import Notiflix from 'notiflix';
 import 'lazysizes';
