@@ -1,1 +1,0 @@
-{"mappings":"gfAAAA,EAAA,S","sources":["src/librarry.js"],"sourcesContent":["import './main-js/btn-scroll-up';\nimport './main-js/title-animation';\nimport './main-js/tioggle-theme';\nimport './main-js/location';\nimport './main-js/google-translate';\nimport './main-js/firebase';\n"],"names":["parcelRequire"],"version":3,"file":"librarry.a95bf4f3.js.map"}
