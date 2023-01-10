@@ -12,8 +12,8 @@ const options = {
   rootMargin: '400px',
   // threshold: 1.0,
 };
-const observer = new IntersectionObserver(onLoadFilmCards, options);
-const target = document.querySelector('.target');
+export const observer = new IntersectionObserver(onLoadFilmCards, options);
+export const target = document.querySelector('.target');
 
 // вызов функции загрузки главной коллекции фильмов
 function onLoadCollection() {
@@ -23,7 +23,7 @@ function onLoadCollection() {
 onLoadCollection();
 
 // подгрузка бесконечного скролла
-function onLoadFilmCards(entries) {
+export function onLoadFilmCards(entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       apiThemoviedb.incrementPage();

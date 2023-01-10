@@ -3,9 +3,11 @@ import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import moviesWathces from '../templates/movies-watched.hbs';
+import { observer } from './renderAllCollection';
+import { target } from './renderAllCollection';
 
 const gallery = document.querySelector('.gallery');
-const librarryContainer = document.querySelector('.librarry-colection');
+// const galleryData = document.querySelector('[data-films]');
 
 gallery.addEventListener('click', onClickCard);
 
@@ -17,7 +19,7 @@ export function onClickCard(e) {
   // apiThemoviedb.movieId = e.target.dataset.id;
   const currentId = e.target.dataset.id;
   apiThemoviedb.setMovieId(currentId);
-  apiThemoviedb.fetchFilmsById().then(onOpenCard);
+  apiThemoviedb.fetchFilmsById(currentId).then(onOpenCard);
 }
 
 export function onOpenCard(data) {
@@ -44,17 +46,18 @@ export function onOpenCard(data) {
   // добавить карточки в библиотеку ===========================================================================
   const modalLibrarryBtn = document.querySelector('.modal-btn');
   modalLibrarryBtn.addEventListener('click', onRenderMoviesInLibrarry);
-
   function onRenderMoviesInLibrarry(e) {
+    // instance.close();
     const currentIdBtnWatch = e.target.dataset.id;
+    console.log(e);
     apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(onOpenCardCollection);
+    observer.unobserve(target);
   }
 
   function onOpenCardCollection(movie) {
     const resultWatch = moviesWathces(movie);
+    gallery.innerHTML = resultWatch;
     console.dir(resultWatch);
-
-    librarryContainer.insertAdjacentHTML('beforeend', resultWatch);
     apiThemoviedb.resetPage();
   }
 }

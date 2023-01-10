@@ -15,6 +15,4 @@ function onToggleFunction() {
     iconOpen.classList.toggle('hide');
     iconClose.classList.toggle('hide');
   }
-  // iconOpen.classList.toggle('hide');
-  // iconClose.classList.toggle('hide');
 }

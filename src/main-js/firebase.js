@@ -25,11 +25,6 @@ const emailSign = document.querySelector('#email');
 const passwordSign = document.querySelector('#password');
 const token = localStorage.getItem(TOKEN_KEY);
 
-passwordSign.addEventListener('input', test);
-function test(e) {
-  console.dir(e);
-}
-
 gitBtn.addEventListener('click', onSignFunctionGit);
 googleBtn.addEventListener('click', onSignFunctionGoogle);
 emailAndPhone.addEventListener('click', onRegisterEmailAndPhone);
