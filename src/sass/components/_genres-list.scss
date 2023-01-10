@@ -196,6 +196,35 @@ body.white-theme .search-button {
   box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
 }
 
+.view-favorites-btn {
+  opacity: 0;
+  font-family: 'Aboreto';
+  cursor: pointer;
+  background-color: transparent;
+  max-width: 130px;
+  border: none;
+  border-radius: 5px;
+  color: gold;
+  text-shadow: 0 0 5px rgb(31, 53, 20);
+  padding: 5px;
+  box-shadow: 0 0 5px 5px rgba(6, 230, 246, 0.7);
+  transition: transform 0.3s;
+
+  &:focus,
+  &:hover {
+    transform: scale(1.1);
+    outline: none;
+  }
+}
+
+.view-favorites-btn.hide {
+  opacity: 1;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // margin-top: 70px;
+}
+
 .genre-list {
   font-family: 'Aboreto';
   width: 100%;

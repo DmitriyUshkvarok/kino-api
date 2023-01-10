@@ -16,3 +16,4 @@ import './main-js/preloader';
 import './main-js/swiper-expected';
 import './main-js/renderByExpected';
 import './main-js/password-toggle-input';
+import './main-js/render-favorites-movies';
