@@ -9,16 +9,12 @@
     </div>
     <div class='expected-info'>
       <h2 class='expected-title-modal'>{{title}}</h2>
-      {{!-- <p class='expected-ganre'>Genre:
-        {{#each genres}}
-          <span class='sub-genre'>{{this.genre_ids}}</span>
-        {{/each}}
-      </p> --}}
       <p class='expected-review'>{{overview}}</p>
       <p class='expected-relese'>{{release_date}}</p>
       <p class='expected-popularity'>{{popularity}}</p>
       <div class='expected-btn-wrapper'>
-        <button class='expected-btn' type='button'>Add to watched</button>
+        <button class='expected-btn' type='button' data-id='{{id}}'>Add to
+          watched</button>
       </div>
     </div>
   </li>

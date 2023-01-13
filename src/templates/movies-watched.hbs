@@ -1,4 +1,4 @@
-<div class='movie-card__item' data-id='{{id}}'>
+<li class='movie-card__item' data-id='{{id}}' id='open'>
   <div class='movie-card'>
     <div class='poster-wrapper'>
       {{#if poster_path}}
@@ -7,7 +7,7 @@
           alt='{{title}}'
           class='movie-card__poster lazyload'
           loading='lazy'
-          data-id='{{id}}'
+          {{!-- data-id='{{id}}' --}}
         />
       {{else}}
         <img
@@ -15,7 +15,7 @@
           alt='{{title}}'
           class='movie-card__poster'
           loading='lazy'
-          data-id='{{id}}'
+          {{!-- data-id='{{id}}' --}}
         />
       {{/if}}
     </div>
@@ -26,14 +26,12 @@
           <span>&#127871;</span>
         </div>
         <p class='info-item-year'>{{release_date}}</p>
-        {{!-- <div class='second-thumb'>
-            <span class='info-item-language'>
-              {{original_language}}
-            </span>
-          </div> --}}
         <p class='info-item-rating'><span class='rating-icon'>&#9733;</span>
           {{vote_average}}</p>
       </div>
     </div>
   </div>
-</div>
+  <div class='watched-delete-wrapper'>
+    <button class='watched-delete' type='button' id='close'></button>
+  </div>
+</li>

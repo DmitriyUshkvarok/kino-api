@@ -3,24 +3,21 @@ import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { onRenderMoviesInLibrarry } from './render-favorites-movies';
-// import { onRenderWatches } from './render-favorites-movies';
 
 const gallery = document.querySelector('.gallery');
 
 gallery.addEventListener('click', onClickCard);
 
-export function onClickCard(e) {
+function onClickCard(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
-
-  // apiThemoviedb.movieId = e.target.dataset.id;
   const currentId = e.target.dataset.id;
   apiThemoviedb.setMovieId(currentId);
   apiThemoviedb.fetchFilmsById(currentId).then(onOpenCard);
 }
 
-export function onOpenCard(data) {
+function onOpenCard(data) {
   const markupId = modalFunction(data);
   const instance = basicLightbox.create(markupId);
   instance.show();
@@ -41,7 +38,10 @@ export function onOpenCard(data) {
   function onOffHidden() {
     document.body.classList.remove('stop-fon');
   }
-  // добавить карточки в библиотеку ===========================================================================
+  // добавить карточки в библиотеку  клик ===========================================================================
   const modalLibrarryBtn = document.querySelector('.modal-btn');
   modalLibrarryBtn.addEventListener('click', onRenderMoviesInLibrarry);
+  // ====
 }
+
+export { onClickCard, onOpenCard };

@@ -3,9 +3,6 @@ import allCollection from '../templates/all-collection.hbs';
 import Notiflix from 'notiflix';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
-
-const gallery = document.querySelector('.gallery');
-export const apiThemoviedb = new ApiThemoviedb();
 // бесконечный скролл
 const options = {
   root: null,
@@ -15,6 +12,9 @@ const options = {
 export const observer = new IntersectionObserver(onLoadFilmCards, options);
 export const target = document.querySelector('.target');
 
+export const apiThemoviedb = new ApiThemoviedb();
+
+const gallery = document.querySelector('.gallery');
 // вызов функции загрузки главной коллекции фильмов
 function onLoadCollection() {
   apiThemoviedb.fetchFilms(apiThemoviedb.page).then(renderMarkupMovieCard);
@@ -44,7 +44,7 @@ export function onLoadFilmCards(entries) {
 
 // рендер коллекции фильмов
 function renderMarkupMovieCard(results) {
-  if (results.total_pages === 0) {
+  if (results.total_results === 0) {
     return Notiflix.Notify.info('Enter the name movie');
   }
   const resultAll = allCollection(results);

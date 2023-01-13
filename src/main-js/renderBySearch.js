@@ -1,6 +1,7 @@
 import allCollection from '../templates/all-collection.hbs';
 import Notiflix from 'notiflix';
 import { apiThemoviedb } from './renderAllCollection';
+import { scrollSmooth } from './scroll-by-push-btn-search';
 
 export const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -20,6 +21,8 @@ function onSubmitForm(e) {
   }
   apiThemoviedb.resetPage();
   apiThemoviedb.fetchFilmsBySearch(apiThemoviedb.searchValue).then(showMovie);
+  refs.searchForm.elements.searchQuery.value = '';
+  scrollSmooth();
 }
 
 function showMovie(resultSearch) {

@@ -80,7 +80,14 @@ body.white-theme {
   padding-right: 20px;
   margin-bottom: 5px;
   background-color: rgba(11, 12, 12, 0.7);
-  // background-image: url('../images/bg-promo.png');
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 1.5s, opacity 1.7s;
+}
+
+.page-header.hiden-header {
+  opacity: 0;
+  transform: translateX(-100%);
 }
 
 .page-header .container {
@@ -97,7 +104,6 @@ body.white-theme {
   font-weight: bold;
   padding-top: 10px;
   padding-bottom: 10px;
-  // text-shadow: 0 0 10px rgb(201, 162, 45);
   text-shadow: 0 0 10px rgb(6, 230, 246);
 }
 
@@ -138,6 +144,22 @@ body.white-theme .home-btn {
     transform: scale(1.1);
     outline: none;
   }
+}
+
+.librarry-container {
+  margin-top: 70px;
+  padding: 30px;
+  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+}
+
+.librarry-no-movies {
+  color: gold;
+  font-family: 'Aboreto';
+  font-size: 30px;
+}
+
+.library-wrapper {
+  margin-top: 70px;
 }
 
 .search-form {
@@ -196,35 +218,6 @@ body.white-theme .search-button {
   box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
 }
 
-.view-favorites-btn {
-  opacity: 0;
-  font-family: 'Aboreto';
-  cursor: pointer;
-  background-color: transparent;
-  max-width: 130px;
-  border: none;
-  border-radius: 5px;
-  color: gold;
-  text-shadow: 0 0 5px rgb(31, 53, 20);
-  padding: 5px;
-  box-shadow: 0 0 5px 5px rgba(6, 230, 246, 0.7);
-  transition: transform 0.3s;
-
-  &:focus,
-  &:hover {
-    transform: scale(1.1);
-    outline: none;
-  }
-}
-
-.view-favorites-btn.hide {
-  opacity: 1;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // margin-top: 70px;
-}
-
 .genre-list {
   font-family: 'Aboreto';
   width: 100%;
@@ -239,8 +232,6 @@ body.white-theme .search-button {
 }
 
 .genre-item {
-  // box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9),
-  //   inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
   box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
   font-size: 21px;
   display: flex;
@@ -274,6 +265,7 @@ body.white-theme .genre-item {
 }
 
 .movie-card__item {
+  position: relative;
   border-radius: 10px;
   max-width: 200px;
   transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
@@ -282,7 +274,6 @@ body.white-theme .genre-item {
   &:hover {
     filter: saturate(165%);
     box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
-    // transform: scale(1.02);
   }
 }
 
@@ -352,6 +343,34 @@ body.white-theme .movie-card__item:hover {
   color: rgb(204, 200, 200);
 }
 
+.watched-delete-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.watched-delete {
+  display: block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.watched-delete::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url('../images/delete-movies.png');
+  background-position: center;
+  background-size: cover;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
 // modal============
 .modal {
   max-width: 700px;
@@ -360,8 +379,6 @@ body.white-theme .movie-card__item:hover {
   align-items: center;
   background-color: rgba(255, 228, 196, 0.6);
   border-radius: 10px;
-  // box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9),
-  //   inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
   box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
 }
 
@@ -465,8 +482,6 @@ body.white-theme .modal-btn {
 // swiper top genre
 .mySwiper {
   border-radius: 10px;
-  // box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9),
-  //   inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
   box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
   margin-bottom: 10px;
 }
@@ -481,8 +496,6 @@ body.white-theme .mySwiper {
 }
 
 .rater-slide {
-  // box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9),
-  //   inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
   box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
   cursor: pointer;
   max-width: 180px;
@@ -492,7 +505,6 @@ body.white-theme .mySwiper {
 
   &:hover {
     filter: saturate(165%);
-    // box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
     transform: scale(1.02);
   }
 }

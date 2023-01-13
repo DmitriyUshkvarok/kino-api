@@ -1,44 +1,33 @@
 import { apiThemoviedb } from './renderAllCollection';
-import moviesWathces from '../templates/movies-watched.hbs';
-import { observer } from './renderAllCollection';
-import { target } from './renderAllCollection';
-export const gallery = document.querySelector('.gallery');
-export const WATCH_KEY = 'watch-key';
-
-const viewFafavorites = document.querySelector('.view-favorites-btn');
-// const librarry = document.querySelector('.librarry-btn');
+import { Notify } from 'notiflix';
+const WATCH_KEY = 'watch-key';
 
 if (!JSON.parse(localStorage.getItem(WATCH_KEY))) {
   localStorage.setItem(WATCH_KEY, JSON.stringify([]));
 }
-// librarry.addEventListener('click', onHideBtnCollection);
-// function onHideBtnCollection(e) {
-//   console.log(e);
-//   viewFafavorites.classList.add('hide');
-// }
-viewFafavorites.addEventListener('click', onRenderWatches);
 
+// делаем запрос по клику на кнопку "добавить фильм"
 export function onRenderMoviesInLibrarry(e) {
   const currentIdBtnWatch = e.target.dataset.id;
-  console.log(e);
   apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(setMovieToLocalStorage);
+  Notify.success('Фильм добавлен в библиотеку');
 }
 
-function setMovieToLocalStorage({ poster_path, id, genres, release_date }) {
+// устанавливаем ключ локального хранилища  и
+function setMovieToLocalStorage({
+  poster_path,
+  id,
+  genres,
+  release_date,
+  title,
+  vote_average,
+}) {
   const dataFromLocalStorage = JSON.parse(localStorage.getItem(WATCH_KEY));
   localStorage.setItem(
     WATCH_KEY,
     JSON.stringify([
       ...dataFromLocalStorage,
-      { poster_path, id, genres, release_date },
+      { poster_path, id, genres, release_date, title, vote_average },
     ])
   );
-}
-
-function onRenderWatches(e) {
-  console.log(e);
-  let movieLocal = JSON.parse(localStorage.getItem(WATCH_KEY));
-  if (movieLocal) {
-    movieLocal = JSON.parse(movieLocal);
-  }
 }
