@@ -9,10 +9,11 @@ const gallery = document.querySelector('.gallery');
 gallery.addEventListener('click', onClickCard);
 
 function onClickCard(e) {
-  if (e.target.nodeName !== 'IMG') {
+  if (e.target === e.currentTarget) {
     return;
   }
-  const currentId = e.target.dataset.id;
+
+  const currentId = e.target.closest('.movie-card__item').dataset.id;
   apiThemoviedb.setMovieId(currentId);
   apiThemoviedb.fetchFilmsById(currentId).then(onOpenCard);
 }

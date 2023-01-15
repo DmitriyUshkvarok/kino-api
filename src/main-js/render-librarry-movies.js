@@ -11,7 +11,7 @@ const apiThemoviedb = new ApiThemoviedb();
 
 gallery.addEventListener('click', onClickGalleryLibraryRemoveAndOpenModal);
 
-// получение списка фильмов из локального хранилища для библиотеки
+// получение списка фильмов из локального хранилища для библиотеки и проверка на пустую библиотеку
 function getWatchesList() {
   const data = JSON.parse(localStorage.getItem(WATCH_KEY));
   if (!data) {
@@ -61,7 +61,6 @@ async function onClickGalleryLibraryRemoveAndOpenModal(e) {
 }
 // рендер модального окна
 function onOpenCardModalLibrarry(respModal) {
-  // console.log(respModal);
   const markupId = modalFunction(respModal);
   const instance = basicLightbox.create(markupId);
   instance.show();

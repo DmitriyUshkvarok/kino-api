@@ -20,33 +20,32 @@ export function onRenderMoviesInLibrarry(e) {
   const currentIdBtnWatch = e.target.dataset.id;
   apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(setMovieToLocalStorage);
 
-  if (data.find(film => film.id === Number(currentIdBtnWatch))) {
-    let data = getWatchesList();
-    localStorage.setItem(WATCH_KEY, JSON.stringify(data));
-    const modalLibrarryBtn = document.querySelector('.modal-btn');
-    modalLibrarryBtn.textContent = 'Add to watched';
-    Notify.success('Фильм Удалён из библиотеки');
+  if (!data.find(film => film.id === Number(currentIdBtnWatch))) {
+    removeMovieFromWatched(currentIdBtnWatch);
   } else {
-    let data = getWatchesList();
-    data = data.filter(film => film.id !== currentIdBtnWatch);
-    localStorage.setItem(WATCH_KEY, JSON.stringify(data));
-    const modalLibrarryBtn = document.querySelector('.modal-btn');
-    modalLibrarryBtn.textContent = 'remove from watch';
-    Notify.success('Фильм добавлен в библиотеку');
+    addMovieToWatch();
   }
 }
 
-// function removeMovieFromWatched() {
-//   let data = getWatchesList();
-//   data = data.filter(film => film.id !== currentIdBtnWatch);
-//   localStorage.setItem(WATCH_KEY, JSON.stringify(data));
-//   const modalLibrarryBtn = document.querySelector('.modal-btn');
-//   modalLibrarryBtn.textContent = 'Add to watched';
-//   Notify.success('Фильм Удалён из библиотеки');
-// }
+function addMovieToWatch() {
+  let data = getWatchesList();
+  localStorage.setItem(WATCH_KEY, JSON.stringify(data));
+  const modalLibrarryBtn = document.querySelector('.modal-btn');
+  modalLibrarryBtn.textContent = 'remove from watch';
+  Notify.success('Фильм добавлен в библиотеку');
+}
+
+function removeMovieFromWatched(currentIdBtnWatch) {
+  let data = getWatchesList();
+  data = data.filter(film => film.id !== currentIdBtnWatch);
+  localStorage.setItem(WATCH_KEY, JSON.stringify(data));
+  const modalLibrarryBtn = document.querySelector('.modal-btn');
+  modalLibrarryBtn.textContent = 'Add to watched';
+  Notify.success('Фильм Удалён из библиотеки');
+}
 
 // устанавливаем ключ локального хранилища  и
-function setMovieToLocalStorage({
+export function setMovieToLocalStorage({
   poster_path,
   id,
   genres,
