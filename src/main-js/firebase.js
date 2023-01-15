@@ -23,6 +23,7 @@ const emailAndPhone = document.querySelector('.btn-register');
 const btnSign = document.querySelector('.btn-sign');
 const emailSign = document.querySelector('#email');
 const passwordSign = document.querySelector('#password');
+const userInfoWrapper = document.querySelector('.info-user-container');
 const token = localStorage.getItem(TOKEN_KEY);
 
 gitBtn.addEventListener('click', onSignFunctionGit);
@@ -61,9 +62,22 @@ function authState() {
     if (user) {
       const uid = user.uid;
       console.log(user);
+      userInfoWrapper.innerHTML = `<div class='info-user'>
+        <img
+          class='info-usrer-photo'
+          src='${user.photoURL}'
+          alt=''
+        />
+        <div class='info-container'>
+        <h3 class='info-user-name'>${user.displayName}</h3>
+        <div class='info-user-email'>${user.email}</div>
+        </div>
+      </div>`;
     } else {
+      userInfoWrapper.innerHTML = '';
       // User is signed out
       // ...
+      // userInfo(user)
     }
   });
 }

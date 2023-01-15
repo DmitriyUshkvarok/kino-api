@@ -89,4 +89,9 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(6, 230, 246, 0.7);
+}
+
+body.white-theme .slider.round:before {
+  box-shadow: 0 0 10px 7px rgba(242, 10, 10, 0.7);
 }

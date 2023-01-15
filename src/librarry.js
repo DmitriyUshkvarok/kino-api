@@ -9,3 +9,4 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import './main-js/preloader';
 import './main-js/render-librarry-movies';
 import './main-js/fatch-films';
+import './main-js/hidden-header';

@@ -77,10 +77,16 @@ body.white-theme {
   top: 0;
   right: 0;
   z-index: 10;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 5px;
   background-color: rgba(11, 12, 12, 0.7);
+  background-image: url("../images/header-fon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   opacity: 1;
   transform: translateX(0);
   transition: transform 1.5s, opacity 1.7s;
@@ -97,9 +103,19 @@ body.white-theme {
   justify-content: space-between;
 }
 
+.logo-user-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
 .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Aboreto";
-  font-size: 27px;
+  font-size: 37px;
   color: gold;
   font-weight: bold;
   padding-top: 10px;
@@ -116,6 +132,38 @@ body.white-theme .logo {
   text-shadow: 0 0 10px rgb(242, 10, 10);
 }
 
+.info-usrer-photo {
+  box-shadow: 0 0 10px 7px rgba(6, 230, 246, 0.7);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+body.white-theme .info-usrer-photo {
+  box-shadow: 0 0 10px 7px rgba(242, 10, 10, 0.7);
+}
+
+.info-user {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 5px;
+}
+
+.info-user-name,
+.info-user-email {
+  font-size: 14px;
+  color: gold;
+  text-shadow: 0 0 10px rgb(6, 230, 246);
+}
+
 body.white-theme .librarry-btn,
 body.white-theme .home-btn {
   box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
@@ -124,7 +172,7 @@ body.white-theme .home-btn {
 .librarry-btn,
 .home-btn {
   font-family: "Aboreto";
-  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+  box-shadow: 0 0 10px 7px rgba(6, 230, 246, 0.7);
   border-radius: 10px;
   cursor: pointer;
   display: flex;
@@ -147,7 +195,7 @@ body.white-theme .home-btn {
 }
 
 .librarry-container {
-  margin-top: 70px;
+  margin-top: 130px;
   padding: 30px;
   box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
 }
@@ -159,7 +207,7 @@ body.white-theme .home-btn {
 }
 
 .library-wrapper {
-  margin-top: 70px;
+  margin-top: 170px;
 }
 
 .search-form {
@@ -178,7 +226,7 @@ body.white-theme .home-btn {
   outline: 1px solid gold;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7), inset 0 0 30px 10px rgba(6, 230, 246, 0.7);
+  box-shadow: 0 0 10px 7px rgba(6, 230, 246, 0.7);
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -213,7 +261,7 @@ body.white-theme .input-search {
   border-radius: 5px;
   color: gold;
   padding: 5px;
-  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7), inset 0 0 30px 10px rgba(6, 230, 246, 0.7);
+  box-shadow: 0 0 10px 7px rgba(6, 230, 246, 0.7);
 }
 .search-button:focus {
   transform: scale(1.1);
@@ -706,6 +754,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(6, 230, 246, 0.7);
+}
+
+body.white-theme .slider.round:before {
+  box-shadow: 0 0 10px 7px rgba(242, 10, 10, 0.7);
 }
 
 .skiptranslate {
@@ -722,7 +775,7 @@ input:checked + .slider:before {
 }
 
 .wrapper-language {
-  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+  box-shadow: 0 0 10px 7px rgba(6, 230, 246, 0.7);
   border-radius: 10px;
   position: relative;
   z-index: 50;
@@ -966,20 +1019,22 @@ body.white-theme .wrapper-language {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
+  bottom: 23%;
+  right: 0;
   font-family: "Aboreto";
   cursor: pointer;
   background-color: transparent;
   padding: 3px;
-  max-width: 80px;
-  height: 30px;
+  max-width: 50px;
+  height: 20px;
   outline: 1px solid gold;
   border: none;
   border-radius: 5px;
   color: gold;
   padding: 5px;
-  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
-  font-size: 12px;
+  box-shadow: 0 0 10px 5px rgba(6, 230, 246, 0.7);
+  font-size: 8px;
   transition: transform 0.4s;
 }
 .btn-log-out:hover, .btn-log-out:focus {
@@ -1264,7 +1319,7 @@ body.white-theme .btn-log-out {
   color: gold;
   text-shadow: 0 0 20px rgb(201, 162, 45);
   margin-bottom: 30px;
-  margin-top: 70px;
+  margin-top: 150px;
 }
 
 .expected-swiper {
