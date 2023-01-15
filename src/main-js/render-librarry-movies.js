@@ -4,6 +4,7 @@ import { ApiThemoviedb } from './fatch-films';
 import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { Notify } from 'notiflix';
 export const gallery = document.querySelector('.gallery');
 export const WATCH_KEY = 'watch-key';
 const apiThemoviedb = new ApiThemoviedb();
@@ -50,21 +51,20 @@ async function onClickGalleryLibraryRemoveAndOpenModal(e) {
     console.log(data);
     data = data.filter(film => film.id !== Number(currentId));
     localStorage.setItem(WATCH_KEY, JSON.stringify(data));
-    window.location.reload();
+    Notify.success('Фильм Удалён из библиотеки');
+    renderMarkupListMovies();
   } else {
     await apiThemoviedb
       .fetchFilmsById(this.currentId)
       .then(onOpenCardModalLibrarry);
   }
 }
-
 // рендер модального окна
 function onOpenCardModalLibrarry(respModal) {
   // console.log(respModal);
   const markupId = modalFunction(respModal);
   const instance = basicLightbox.create(markupId);
   instance.show();
-
   document.body.classList.add('stop-fon');
 
   // закрытие модального окна по кнопке esc
