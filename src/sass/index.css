@@ -852,16 +852,18 @@ body.white-theme .wrapper-language {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  background-image: url("../images/background-fon.jpg");
+  background-image: url("../images/modal-fon-batman.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 1;
+  visibility: visible;
   z-index: 25;
 }
 
 .back-drop-modal.is-hidden {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 
@@ -882,6 +884,11 @@ body.white-theme .wrapper-language {
 
 .fedback-form-group {
   max-width: 100%;
+}
+
+.feedback-form__label {
+  color: gold;
+  text-shadow: 0 0 5px black;
 }
 
 .password-wrapper {
@@ -916,16 +923,25 @@ body.white-theme .wrapper-language {
 .input-email,
 .input-password {
   font-family: "Aboreto";
-  background-color: transparent;
+  background-color: rgba(249, 245, 245, 0.765);
   padding: 3px;
   max-width: 100%;
   height: 30px;
   outline: 1px solid gold;
+  color: rgb(17, 17, 17);
   border: none;
   border-radius: 5px;
-  color: rgb(26, 25, 25);
-  box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9), inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
+  box-shadow: 0 0 5px 4px rgba(201, 162, 45, 0.9);
   transition: transform 0.4s;
+}
+
+.forfgot-password {
+  margin-top: 10px;
+  color: gold;
+}
+
+.enter-email-for-password {
+  margin-top: 10px;
 }
 
 .btn-form-wrapper {
@@ -941,15 +957,15 @@ body.white-theme .wrapper-language {
   justify-content: center;
   align-items: center;
   font-family: "Aboreto";
-  background-color: transparent;
+  background-color: rgba(6, 6, 6, 0.6);
   padding: 3px;
   width: 100%;
   height: 30px;
   outline: 1px solid gold;
   border: none;
   border-radius: 5px;
-  color: rgb(26, 25, 25);
-  box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.9), inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
+  box-shadow: 0 0 10px 7px rgba(201, 162, 45, 0.9);
+  color: gold;
   transition: transform 0.4s;
 }
 .btn-register:hover, .btn-register:focus,
@@ -979,7 +995,7 @@ body.white-theme .wrapper-language {
   position: relative;
   font-family: "Aboreto";
   cursor: pointer;
-  background-color: transparent;
+  background-color: rgba(249, 245, 245, 0.211);
   width: 210px;
   height: 30px;
   outline: 1px solid gold;
@@ -987,7 +1003,7 @@ body.white-theme .wrapper-language {
   border-radius: 5px;
   color: gold;
   padding: 5px;
-  box-shadow: 0 0 10px 10px rgba(201, 162, 45, 0.902), inset 0 0 30px 10px rgba(201, 162, 45, 0.9);
+  box-shadow: 0 0 10px 7px rgba(201, 162, 45, 0.902);
   transition: transform 0.4s;
 }
 .btn-modal-sign:hover, .btn-modal-sign:focus,

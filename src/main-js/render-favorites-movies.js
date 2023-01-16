@@ -18,31 +18,46 @@ if (!JSON.parse(localStorage.getItem(WATCH_KEY))) {
 export function onRenderMoviesInLibrarry(e) {
   let data = getWatchesList();
   const currentIdBtnWatch = e.target.dataset.id;
-  apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(setMovieToLocalStorage);
+  // apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(setMovieToLocalStorage);
+  // Notify.success('Фильм добавлен в библиотеку');
 
-  if (!data.find(film => film.id === Number(currentIdBtnWatch))) {
-    removeMovieFromWatched(currentIdBtnWatch);
+  if (data.find(film => film.id === Number(currentIdBtnWatch))) {
+    let data = getWatchesList();
+    data = data.filter(film => film.id !== Number(currentIdBtnWatch));
+    localStorage.setItem(WATCH_KEY, JSON.stringify(data));
+    const modalLibrarryBtn = document.querySelector('.modal-btn');
+    modalLibrarryBtn.textContent = 'Add to watched';
+    Notify.success('Фильм Удалён из библиотеки');
   } else {
-    addMovieToWatch();
+    let data = getWatchesList();
+    localStorage.setItem(WATCH_KEY, JSON.stringify(data));
+    apiThemoviedb
+      .fetchFilmsById(currentIdBtnWatch)
+      .then(setMovieToLocalStorage);
+    const modalLibrarryBtn = document.querySelector('.modal-btn');
+    modalLibrarryBtn.textContent = 'remove from watch';
+    Notify.success('Фильм добавлен в библиотеку');
   }
 }
 
-function addMovieToWatch() {
-  let data = getWatchesList();
-  localStorage.setItem(WATCH_KEY, JSON.stringify(data));
-  const modalLibrarryBtn = document.querySelector('.modal-btn');
-  modalLibrarryBtn.textContent = 'remove from watch';
-  Notify.success('Фильм добавлен в библиотеку');
-}
+// function addMovieToWatch(currentIdBtnWatch) {
+//   let data = getWatchesList();
+//   apiThemoviedb.fetchFilmsById(currentIdBtnWatch).then(setMovieToLocalStorage);
+//   console.log(data);
+//   localStorage.setItem(WATCH_KEY, JSON.stringify(data));
+//   const modalLibrarryBtn = document.querySelector('.modal-btn');
+//   modalLibrarryBtn.textContent = 'remove from watch';
+//   Notify.success('Фильм добавлен в библиотеку');
+// }
 
-function removeMovieFromWatched(currentIdBtnWatch) {
-  let data = getWatchesList();
-  data = data.filter(film => film.id !== currentIdBtnWatch);
-  localStorage.setItem(WATCH_KEY, JSON.stringify(data));
-  const modalLibrarryBtn = document.querySelector('.modal-btn');
-  modalLibrarryBtn.textContent = 'Add to watched';
-  Notify.success('Фильм Удалён из библиотеки');
-}
+// function removeMovieFromWatched(currentIdBtnWatch) {
+//   let data = getWatchesList();
+//   data = data.filter(film => film.id !== currentIdBtnWatch);
+//   localStorage.setItem(WATCH_KEY, JSON.stringify(data));
+//   const modalLibrarryBtn = document.querySelector('.modal-btn');
+//   modalLibrarryBtn.textContent = 'Add to watched';
+//   Notify.success('Фильм Удалён из библиотеки');
+// }
 
 // устанавливаем ключ локального хранилища  и
 export function setMovieToLocalStorage({

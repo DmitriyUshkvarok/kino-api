@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signOut,
 } from 'firebase/auth';
 
@@ -24,6 +25,8 @@ const btnSign = document.querySelector('.btn-sign');
 const emailSign = document.querySelector('#email');
 const passwordSign = document.querySelector('#password');
 const userInfoWrapper = document.querySelector('.info-user-container');
+const resetPassword = document.querySelector('.forfgot-password');
+const emailForReset = document.querySelector('.enter-email-for-password');
 const token = localStorage.getItem(TOKEN_KEY);
 
 gitBtn.addEventListener('click', onSignFunctionGit);
@@ -32,6 +35,7 @@ emailAndPhone.addEventListener('click', onRegisterEmailAndPhone);
 btnSign.addEventListener('click', onSign);
 btnOut.addEventListener('click', onOutFunction);
 window.addEventListener('load', onStopBackground);
+resetPassword.addEventListener('click', onResetPasswword);
 // стоп фон при авторизации
 function onStopBackground() {
   body.classList.add('stop-fon');
@@ -60,8 +64,8 @@ const authStateChange = getAuth();
 function authState() {
   onAuthStateChanged(authStateChange, user => {
     if (user) {
+      // console.log(user);
       const uid = user.uid;
-      console.log(user);
       userInfoWrapper.innerHTML = `<div class='info-user'>
         <img
           class='info-usrer-photo'
@@ -74,14 +78,46 @@ function authState() {
         </div>
       </div>`;
     } else {
-      userInfoWrapper.innerHTML = '';
-      // User is signed out
-      // ...
-      // userInfo(user)
+      // userInfoWrapper.innerHTML = `<div class='info-user'>
+      //   <div class='info-container'>
+      //   <h3 class='info-user-name'>гость</h3>
+      //   <div class='info-user-email'>нет адреса</div>
+      //   </div>
+      // </div>`;
     }
   });
 }
 authState();
+
+function onResetPasswword(e) {
+  e.preventDefault();
+  emailForReset.innerHTML = ` <label class="feedback-form__label" for="email">enter the email address you provided during registration</label>
+          <input class="input-email" type="email"
+            name="email"
+            id="email"
+            autocomplete="on">
+              <button class="btn-new-password" type="submit" value=""
+              id='submit'>Получить новый пароль</button>`;
+  const newPassword = document.querySelector('.btn-new-password');
+  newPassword.addEventListener('click', onSubmitNewPassword);
+}
+
+// сброс пароля
+const authPass = getAuth();
+
+function onSubmitNewPassword(e) {
+  e.preventDefault();
+  // console.log(e);
+  sendPasswordResetEmail(authPass, email)
+    .then(() => {
+      Notify.success(`привет ${user} письмо отправлено`);
+    })
+    .catch(error => {
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
+      // // ..
+    });
+}
 
 // email and phone регистрация
 const authForm = getAuth();
