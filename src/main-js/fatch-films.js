@@ -1,4 +1,4 @@
-// import { Notify } from 'notiflix';
+import { Notify } from 'notiflix';
 // рендер всех карточек
 export class ApiThemoviedb {
   URL = `https://api.themoviedb.org/3`;
@@ -74,23 +74,7 @@ export class ApiThemoviedb {
       .catch(this.onError);
   }
 
-  onError(errorMovie) {
-    // return Notify.failure('sorry this is error');
+  onError() {
+    return Notify.failure('sorry this is error');
   }
 }
-
-// рендер по клику id
-
-// рендер по кнопке поиска
-
-// рендер по жанру
-
-// самые популярные фильмы
-
-// export {
-//   fetchFilms,
-//   fetchFilmsById,
-//   fetchFilmsBySearch,
-//   fetchFilmsByGenre,
-//   fetchFilmsByPopular,
-// };

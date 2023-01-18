@@ -1,4 +1,3 @@
-// import { ApiThemoviedb } from './fatch-films';
 import { apiThemoviedb } from './renderAllCollection';
 import { refs } from './renderBySearch';
 import allCollection from '../templates/all-collection.hbs';
@@ -12,7 +11,6 @@ function onCallByGanre(e) {
   }
   apiThemoviedb.resetPage();
   apiThemoviedb.genreId = e.target.dataset.id;
-  // apiThemoviedb.setGenreId(this.genreId);
   apiThemoviedb.fetchFilmsByGenre(apiThemoviedb.genreId).then(onRenderbyGenre);
 }
 

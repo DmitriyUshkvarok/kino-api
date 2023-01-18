@@ -107,7 +107,6 @@ const authPass = getAuth();
 
 function onSubmitNewPassword(e) {
   e.preventDefault();
-  // console.log(e);
   sendPasswordResetEmail(authPass, email)
     .then(() => {
       Notify.success(`привет ${user} письмо отправлено`);

@@ -3,6 +3,7 @@ import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { onRenderMoviesInLibrarry } from './render-favorites-movies';
+import { getWatchesList } from './render-favorites-movies';
 
 const gallery = document.querySelector('.gallery');
 
@@ -19,11 +20,19 @@ function onClickCard(e) {
 }
 
 function onOpenCard(data) {
+  console.log(data);
   const markupId = modalFunction(data);
   const instance = basicLightbox.create(markupId);
   instance.show();
   document.body.classList.add('stop-fon');
-
+  //  логика кнопки добавить фильм(локальное хранилище)
+  let watchedList = getWatchesList();
+  const modalLibrarryBtn = document.querySelector('.modal-btn');
+  if (!watchedList.find(film => film.id === data.id)) {
+    modalLibrarryBtn.textContent = 'Add to watched';
+  } else {
+    modalLibrarryBtn.textContent = 'Remove from watched';
+  }
   // закрытие модального окна по кнопке esc
   window.addEventListener('keydown', onEscKeyPressEight);
   function onEscKeyPressEight(event) {
@@ -39,10 +48,8 @@ function onOpenCard(data) {
   function onOffHidden() {
     document.body.classList.remove('stop-fon');
   }
-  // добавить карточки в библиотеку  клик ===========================================================================
-  const modalLibrarryBtn = document.querySelector('.modal-btn');
+  // добавить карточки в библиотеку  клик ====================
   modalLibrarryBtn.addEventListener('click', onRenderMoviesInLibrarry);
-  // ====
 }
 
 export { onClickCard, onOpenCard };

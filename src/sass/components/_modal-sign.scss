@@ -13,15 +13,17 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 1;
-  visibility: visible;
+  // opacity: 1;
+  // visibility: visible;
+  display: block;
   z-index: 25;
 }
 
 .back-drop-modal.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  // opacity: 0;
+  // visibility: hidden;
+  // pointer-events: none;
+  display: none;
 }
 
 .modal-window {

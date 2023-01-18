@@ -229,6 +229,7 @@ body.white-theme .home-btn {
   box-shadow: 0 0 10px 7px rgba(6, 230, 246, 0.7);
   padding-left: 10px;
   padding-right: 10px;
+  color: #daa520;
 }
 .input-search:focus {
   transform: scale(1.1);
@@ -856,15 +857,12 @@ body.white-theme .wrapper-language {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 1;
-  visibility: visible;
+  display: block;
   z-index: 25;
 }
 
 .back-drop-modal.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  display: none;
 }
 
 .modal-window {

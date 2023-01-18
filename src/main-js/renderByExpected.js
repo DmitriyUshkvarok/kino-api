@@ -3,25 +3,13 @@ import expecredMovies from '../templates/expected-movies.hbs';
 import { Notify } from 'notiflix';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
-import { setMovieToLocalStorage } from './render-favorites-movies';
+import {
+  setMovieToLocalStorage,
+  getWatchesList,
+  WATCH_KEY,
+} from './render-favorites-movies';
 const swiper = new Swiper();
 const expectedWrapper = document.querySelector('.expected-movies-list');
-const expectedContainer = document.querySelector('.expected-swiper ');
-
-expectedContainer.addEventListener('click', addExpecteddetMovie);
-
-// клик по кнопке добавить фильм в окне ожидаемых фильмов и добавление  карточки в библиотеку
-async function addExpecteddetMovie(e) {
-  console.log(e);
-  if (e.target.id === 'open') {
-    const currentIdBtnWatch = e.target.dataset.id;
-    apiThemoviedb.setMovieId(currentIdBtnWatch);
-    await apiThemoviedb
-      .fetchFilmsById(currentIdBtnWatch)
-      .then(setMovieToLocalStorage);
-    Notify.success('Фильм добавлен в библиотеку');
-  }
-}
 
 // запрос апи ожидаемых фильмов
 function renderByExpected() {
@@ -33,4 +21,41 @@ renderByExpected();
 function onRenderExpected(expectedResponse) {
   const expectedList = expecredMovies(expectedResponse);
   expectedWrapper.innerHTML = expectedList;
+  const movieItem = document.querySelectorAll('.swiper-slide');
+  movieItem.forEach(movieItems => {
+    movieItems.addEventListener('click', onAddCardToLibrarry);
+  });
+}
+
+function onAddCardToLibrarry(e, btns) {
+  if (e.target.id !== 'open') {
+    return;
+  }
+
+  const currentIdExp = e.target.dataset.id;
+  let dataExpected = getWatchesList();
+  console.log(dataExpected);
+  if (dataExpected.find(film => film.id === Number(currentIdExp))) {
+    const expectedBtn = document.querySelectorAll('.expected-btn');
+    const btns = expectedBtn.forEach(expectedBtns => {
+      return (expectedBtns.textContent = 'Add to watched');
+    });
+    let dataExpected = getWatchesList();
+    dataExpected = dataExpected.filter(
+      film => film.id !== Number(currentIdExp)
+    );
+    localStorage.setItem(WATCH_KEY, JSON.stringify(dataExpected));
+    Notify.success('Фильм Удалён из библиотеки');
+  } else {
+    const expectedBtn = document.querySelectorAll('.expected-btn');
+    const btns = expectedBtn.forEach(expectedBtns => {
+      return (expectedBtns.textContent = 'Remove from watch');
+    });
+    let dataExpected = getWatchesList();
+    localStorage.setItem(WATCH_KEY, JSON.stringify(dataExpected));
+    const currentIdExp = e.target.dataset.id;
+    apiThemoviedb.setMovieId(currentIdExp);
+    apiThemoviedb.fetchFilmsById(currentIdExp).then(setMovieToLocalStorage);
+    Notify.success('Фильм добавлен в библиотеку');
+  }
 }

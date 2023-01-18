@@ -61,10 +61,25 @@ async function onClickGalleryLibraryRemoveAndOpenModal(e) {
 }
 // рендер модального окна
 function onOpenCardModalLibrarry(respModal) {
+  let data = getWatchesList();
   const markupId = modalFunction(respModal);
   const instance = basicLightbox.create(markupId);
   instance.show();
   document.body.classList.add('stop-fon');
+
+  const modalLibrarryBtn = document.querySelector('.modal-btn');
+  modalLibrarryBtn.textContent = 'remove from watch';
+  modalLibrarryBtn.addEventListener('click', e => {
+    const currentId = e.target.dataset.id;
+    if (data.find(film => film.id === Number(currentId))) {
+      let data = getWatchesList();
+      data = data.filter(film => film.id !== Number(currentId));
+      localStorage.setItem(WATCH_KEY, JSON.stringify(data));
+      instance.close();
+      Notify.success('Фильм Удалён из библиотеки');
+      renderMarkupListMovies();
+    }
+  });
 
   // закрытие модального окна по кнопке esc
   window.addEventListener('keydown', onEscKeyPressEight);
