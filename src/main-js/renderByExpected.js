@@ -21,36 +21,27 @@ renderByExpected();
 function onRenderExpected(expectedResponse) {
   const expectedList = expecredMovies(expectedResponse);
   expectedWrapper.innerHTML = expectedList;
-  const movieItem = document.querySelectorAll('.swiper-slide');
-  movieItem.forEach(movieItems => {
+  const movieItemBtn = document.querySelectorAll('.expected-btn');
+  movieItemBtn.forEach(movieItems => {
     movieItems.addEventListener('click', onAddCardToLibrarry);
   });
 }
 
-function onAddCardToLibrarry(e, btns) {
+function onAddCardToLibrarry(e) {
   if (e.target.id !== 'open') {
     return;
   }
 
   const currentIdExp = e.target.dataset.id;
   let dataExpected = getWatchesList();
-  console.log(dataExpected);
   if (dataExpected.find(film => film.id === Number(currentIdExp))) {
-    const expectedBtn = document.querySelectorAll('.expected-btn');
-    const btns = expectedBtn.forEach(expectedBtns => {
-      return (expectedBtns.textContent = 'Add to watched');
-    });
     let dataExpected = getWatchesList();
     dataExpected = dataExpected.filter(
       film => film.id !== Number(currentIdExp)
     );
     localStorage.setItem(WATCH_KEY, JSON.stringify(dataExpected));
-    Notify.success('Фильм Удалён из библиотеки');
+    Notify.warning('Фильм Удалён из библиотеки');
   } else {
-    const expectedBtn = document.querySelectorAll('.expected-btn');
-    const btns = expectedBtn.forEach(expectedBtns => {
-      return (expectedBtns.textContent = 'Remove from watch');
-    });
     let dataExpected = getWatchesList();
     localStorage.setItem(WATCH_KEY, JSON.stringify(dataExpected));
     const currentIdExp = e.target.dataset.id;

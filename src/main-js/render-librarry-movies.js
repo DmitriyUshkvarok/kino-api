@@ -51,7 +51,7 @@ async function onClickGalleryLibraryRemoveAndOpenModal(e) {
     console.log(data);
     data = data.filter(film => film.id !== Number(currentId));
     localStorage.setItem(WATCH_KEY, JSON.stringify(data));
-    Notify.success('Фильм Удалён из библиотеки');
+    Notify.warning('Фильм Удалён из библиотеки');
     renderMarkupListMovies();
   } else {
     await apiThemoviedb

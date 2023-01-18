@@ -5,6 +5,11 @@ import topRater from '../templates/top-rated.hbs';
 import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import {
+  setMovieToLocalStorage,
+  getWatchesList,
+  WATCH_KEY,
+} from './render-favorites-movies';
 
 const swiperContainer = document.querySelector('.ganre-wrapper');
 const genrePopulary = document.querySelector('.ganre-populary');
@@ -40,6 +45,14 @@ function onOpenCardRater(ownerRater) {
   instance.show();
   document.body.classList.add('stop-fon');
 
+  let watchedList = getWatchesList();
+  const modalLibrarryBtn = document.querySelector('.modal-btn');
+  if (!watchedList.find(film => film.id === ownerRater.id)) {
+    modalLibrarryBtn.textContent = 'Add to watched';
+  } else {
+    modalLibrarryBtn.textContent = 'Remove from watched';
+  }
+
   // закрытие модалки по кнопке esc
   window.addEventListener('keydown', onEscKeyPressEight);
   function onEscKeyPressEight(event) {
@@ -66,12 +79,28 @@ function onOpenCardRater(ownerRater) {
 // рендер и сохранение в локальное хранилище библиотеки карточки топ 20
 async function addRatedMovieOnLibrarry(e) {
   console.log(e);
-  if (e.target.id === 'open') {
-    const currentIdBtnWatch = e.target.dataset.id;
-    apiThemoviedb.setMovieId(currentIdBtnWatch);
-    await apiThemoviedb
-      .fetchFilmsById(currentIdBtnWatch)
-      .then(setMovieToLocalStorage);
+  if (e.target.id !== 'open') {
+    return;
+  }
+  const currentIdExp = e.target.dataset.id;
+  let dataExpected = getWatchesList();
+  if (dataExpected.find(film => film.id === Number(currentIdExp))) {
+    const modalLibrarryBtn = document.querySelector('.modal-btn');
+    modalLibrarryBtn.textContent = 'Add to watched';
+    let dataExpected = getWatchesList();
+    dataExpected = dataExpected.filter(
+      film => film.id !== Number(currentIdExp)
+    );
+    localStorage.setItem(WATCH_KEY, JSON.stringify(dataExpected));
+    Notify.warning('Фильм Удалён из библиотеки');
+  } else {
+    let dataExpected = getWatchesList();
+    const modalLibrarryBtn = document.querySelector('.modal-btn');
+    modalLibrarryBtn.textContent = 'remove from watch';
+    localStorage.setItem(WATCH_KEY, JSON.stringify(dataExpected));
+    const currentIdExp = e.target.dataset.id;
+    apiThemoviedb.setMovieId(currentIdExp);
+    apiThemoviedb.fetchFilmsById(currentIdExp).then(setMovieToLocalStorage);
     Notify.success('Фильм добавлен в библиотеку');
   }
 }
