@@ -1,0 +1,114 @@
+// modal============
+.modal,
+.modal-film__video {
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 228, 196, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+}
+
+.modal-film__video {
+  width: 800px;
+  min-height: 400px;
+}
+
+body.white-theme .modal {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
+}
+
+.img-container {
+  max-width: 50%;
+}
+
+.modal-img {
+  width: 100%;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+.modal-wrapper {
+  display: flex;
+}
+
+.modal-info {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-family: 'Aboreto';
+  color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+  margin-bottom: 20px;
+}
+
+.modal-ganre {
+  font-family: 'Aboreto';
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+  margin-bottom: 20px;
+}
+
+.modal-review {
+  font-family: 'Aboreto';
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+}
+
+.modal-relese {
+  font-family: 'Aboreto';
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+}
+
+.modal-popularity {
+  font-family: 'Aboreto';
+  color: gold;
+  font-size: 14px;
+  text-shadow: 0 0 20px rgb(201, 162, 45);
+}
+
+.moda-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.modal-btn {
+  font-family: 'Aboreto';
+  cursor: pointer;
+  background-color: transparent;
+  max-width: 130px;
+  border: none;
+  border-radius: 5px;
+  color: gold;
+  text-shadow: 0 0 5px rgb(31, 53, 20);
+  padding: 5px;
+  box-shadow: 0 0 5px 5px rgba(6, 230, 246, 0.7);
+  transition: transform 0.3s;
+
+  &:focus,
+  &:hover {
+    transform: scale(1.1);
+    outline: none;
+  }
+}
+
+body.white-theme .modal-btn {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
+}

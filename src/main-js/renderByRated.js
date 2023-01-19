@@ -1,6 +1,7 @@
 import { apiThemoviedb } from './renderAllCollection';
 import { setMovieToLocalStorage } from './render-favorites-movies';
 import { Notify } from 'notiflix';
+import { onPlayVideo } from './play-video';
 import topRater from '../templates/top-rated.hbs';
 import modalFunction from '../templates/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
@@ -44,6 +45,8 @@ function onOpenCardRater(ownerRater) {
   const instance = basicLightbox.create(markupRater);
   instance.show();
   document.body.classList.add('stop-fon');
+  const modalImg = document.querySelector('.modal-img');
+  modalImg.addEventListener('click', onPlayVideo);
 
   let watchedList = getWatchesList();
   const modalLibrarryBtn = document.querySelector('.modal-btn');
@@ -73,7 +76,6 @@ function onOpenCardRater(ownerRater) {
   // клик на добавление карточки  из топ 20 в галерею
   const modal = document.querySelector('.modal');
   modal.addEventListener('click', addRatedMovieOnLibrarry);
-  console.log(modal);
 }
 
 // рендер и сохранение в локальное хранилище библиотеки карточки топ 20

@@ -13,7 +13,6 @@ export const observer = new IntersectionObserver(onLoadFilmCards, options);
 export const target = document.querySelector('.target');
 
 export const apiThemoviedb = new ApiThemoviedb();
-
 const gallery = document.querySelector('.gallery');
 // вызов функции загрузки главной коллекции фильмов
 function onLoadCollection() {
@@ -21,7 +20,6 @@ function onLoadCollection() {
   observer.observe(target);
 }
 onLoadCollection();
-
 // подгрузка бесконечного скролла
 export function onLoadFilmCards(entries) {
   entries.forEach(entry => {

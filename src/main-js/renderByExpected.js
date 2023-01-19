@@ -3,6 +3,7 @@ import expecredMovies from '../templates/expected-movies.hbs';
 import { Notify } from 'notiflix';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
+import { onRenderVideo } from './play-video';
 import {
   setMovieToLocalStorage,
   getWatchesList,
@@ -25,6 +26,16 @@ function onRenderExpected(expectedResponse) {
   movieItemBtn.forEach(movieItems => {
     movieItems.addEventListener('click', onAddCardToLibrarry);
   });
+  const expectedImg = document.querySelectorAll('.expected-img');
+  expectedImg.forEach(videos => {
+    videos.addEventListener('click', onOpenVideo);
+  });
+}
+
+function onOpenVideo(e) {
+  const currentIdVideo = e.target.dataset.id;
+  apiThemoviedb.setMovieId(currentIdVideo);
+  apiThemoviedb.fetchTrailerMovies(currentIdVideo).then(onRenderVideo);
 }
 
 function onAddCardToLibrarry(e) {

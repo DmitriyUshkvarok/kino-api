@@ -4,6 +4,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { onRenderMoviesInLibrarry } from './render-favorites-movies';
 import { getWatchesList } from './render-favorites-movies';
+import { onPlayVideo } from './play-video';
 
 const gallery = document.querySelector('.gallery');
 
@@ -28,6 +29,7 @@ function onOpenCard(data) {
   //  логика кнопки добавить фильм(локальное хранилище)
   let watchedList = getWatchesList();
   const modalLibrarryBtn = document.querySelector('.modal-btn');
+  const modalImg = document.querySelector('.modal-img');
   if (!watchedList.find(film => film.id === data.id)) {
     modalLibrarryBtn.textContent = 'Add to watched';
   } else {
@@ -50,6 +52,7 @@ function onOpenCard(data) {
   }
   // добавить карточки в библиотеку  клик ====================
   modalLibrarryBtn.addEventListener('click', onRenderMoviesInLibrarry);
+  modalImg.addEventListener('click', onPlayVideo);
 }
 
 export { onClickCard, onOpenCard };

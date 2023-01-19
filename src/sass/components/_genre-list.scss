@@ -1,0 +1,37 @@
+.genre-list {
+  font-family: 'Aboreto';
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.genre-item {
+  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 190px;
+  // height: 15px;
+  padding: 5px;
+  background-color: rgba(10, 10, 10, 0.623);
+  color: gold;
+  border-radius: 4px;
+  transition: transform 0.3s;
+  text-transform: uppercase;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+body.white-theme .genre-item {
+  box-shadow: 0 0 10px 10px rgba(242, 10, 10, 0.7);
+}

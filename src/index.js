@@ -19,3 +19,4 @@ import './main-js/password-toggle-input';
 import './main-js/render-favorites-movies';
 import './main-js/scroll-by-push-btn-search';
 import './main-js/hidden-header';
+import './main-js/play-video';

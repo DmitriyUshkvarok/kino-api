@@ -67,6 +67,9 @@ function onOpenCardModalLibrarry(respModal) {
   instance.show();
   document.body.classList.add('stop-fon');
 
+  const modalImg = document.querySelector('.modal-img');
+  modalImg.addEventListener('click', onPlayVideo);
+
   const modalLibrarryBtn = document.querySelector('.modal-btn');
   modalLibrarryBtn.textContent = 'remove from watch';
   modalLibrarryBtn.addEventListener('click', e => {
@@ -95,5 +98,22 @@ function onOpenCardModalLibrarry(respModal) {
 
   function onOffHidden() {
     document.body.classList.remove('stop-fon');
+  }
+}
+
+function onPlayVideo(e) {
+  const currentIdVideo = e.target.dataset.id;
+  apiThemoviedb.setMovieId(currentIdVideo);
+  apiThemoviedb.fetchTrailerMovies(currentIdVideo).then(onRenderVideo);
+}
+
+function onRenderVideo(respVideo) {
+  if (respVideo.results.length) {
+    const key = respVideo.results[0].key;
+    const video = `<iframe class="modal-film__video" src="https://www.youtube.com/embed/${key}/" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    const instance = basicLightbox.create(video);
+    instance.show();
+  } else {
+    Notify.failure('Извините ,видео не найдено');
   }
 }
