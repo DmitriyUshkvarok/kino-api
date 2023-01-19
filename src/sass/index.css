@@ -887,8 +887,7 @@ body.white-theme .swiper-button-next::after {
   z-index: 10;
 }
 
-.modal,
-.modal-film__video {
+.modal {
   max-width: 700px;
   display: flex;
   justify-content: center;
@@ -898,9 +897,14 @@ body.white-theme .swiper-button-next::after {
   box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
 }
 
-.modal-film__video {
+.video-modal {
   width: 800px;
-  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 228, 196, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 10px rgba(6, 230, 246, 0.7);
 }
 
 body.white-theme .modal {

@@ -11,8 +11,9 @@ export function onPlayVideo(e) {
 
 export function onRenderVideo(respVideo) {
   if (respVideo.results.length) {
+    const videoMadal = document.querySelector('.video-modal');
     const key = respVideo.results[0].key;
-    const video = `<iframe class="modal-film__video" src="https://www.youtube.com/embed/${key}/" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    const video = ` <div class='video-modal'><iframe class="modal-film__video" src="https://www.youtube.com/embed/${key}/" width="800" height="400" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
     const instance = basicLightbox.create(video);
     instance.show();
   } else {

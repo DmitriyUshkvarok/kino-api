@@ -68,7 +68,7 @@ function onOpenCardModalLibrarry(respModal) {
   document.body.classList.add('stop-fon');
 
   const modalImg = document.querySelector('.modal-img');
-  modalImg.addEventListener('click', onPlayVideo);
+  modalImg.addEventListener('click', onPlayVideos);
 
   const modalLibrarryBtn = document.querySelector('.modal-btn');
   modalLibrarryBtn.textContent = 'remove from watch';
@@ -101,17 +101,17 @@ function onOpenCardModalLibrarry(respModal) {
   }
 }
 
-function onPlayVideo(e) {
-  const currentIdVideo = e.target.dataset.id;
-  apiThemoviedb.setMovieId(currentIdVideo);
-  apiThemoviedb.fetchTrailerMovies(currentIdVideo).then(onRenderVideo);
+function onPlayVideos(e) {
+  const currentIdVideos = e.target.dataset.id;
+  apiThemoviedb.setMovieId(currentIdVideos);
+  apiThemoviedb.fetchTrailerMovies(currentIdVideos).then(onRenderVideos);
 }
 
-function onRenderVideo(respVideo) {
-  if (respVideo.results.length) {
-    const key = respVideo.results[0].key;
-    const video = `<iframe class="modal-film__video" src="https://www.youtube.com/embed/${key}/" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    const instance = basicLightbox.create(video);
+function onRenderVideos(respVideos) {
+  if (respVideos.results.length) {
+    const keys = respVideos.results[0].key;
+    const videos = `<div class='video-modal'><iframe class="modal-film__video" src="https://www.youtube.com/embed/${keys}/" width="800" height="400" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+    const instance = basicLightbox.create(videos);
     instance.show();
   } else {
     Notify.failure('Извините ,видео не найдено');
