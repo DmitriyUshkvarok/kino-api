@@ -81,17 +81,7 @@ function authState() {
         </div>
       </div>`;
     } else {
-      // userInfoWrapper.innerHTML = `<div class='info-user'>
-      //   <div class='info-container'>
-      //      <img
-      //     class='info-usrer-photo'
-      //     src='../images/480954349_.thumb.png.d69f3d288fe9b425cdfbb8fd67a77d5f.png'
-      //     alt=''
-      //   />
-      //   <h3 class='info-user-name'>гость</h3>
-      //   <div class='info-user-email'>нет адреса</div>
-      //   </div>
-      // </div>`;
+      // ....
     }
   });
 }
